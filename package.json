@@ -1,0 +1,8 @@
+{
+  "name": "liam-kruer-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Liam Kruer's portfolio — engineering, mathematics, games, and video.",
+  "scripts": { "dev": "node server.mjs", "start": "node server.mjs", "render:papers": "node scripts/render-papers.mjs" }
+}

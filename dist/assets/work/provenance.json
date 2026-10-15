@@ -1,0 +1,754 @@
+{
+  "retrieved": "2026-10-15",
+  "commits": {
+    "game": "31d94de8e3256597b9b66881b656e5c112f75734",
+    "erdos": "90fd28e53183f44ae8271b8e71590ed18eb1c28b",
+    "conjectures": "e88dec4c88e42824b4acd3f9559febe67115471b"
+  },
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assetlib.js",
+      "local": "games/sundrift/assetlib.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/bamboo_clump.expect.json",
+      "local": "games/sundrift/assets/bamboo_clump.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/bamboo_clump.js",
+      "local": "games/sundrift/assets/bamboo_clump.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/bare_tree.expect.json",
+      "local": "games/sundrift/assets/bare_tree.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/bare_tree.js",
+      "local": "games/sundrift/assets/bare_tree.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/boulder.expect.json",
+      "local": "games/sundrift/assets/boulder.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/boulder.js",
+      "local": "games/sundrift/assets/boulder.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/broadleaf_tree.expect.json",
+      "local": "games/sundrift/assets/broadleaf_tree.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/broadleaf_tree.js",
+      "local": "games/sundrift/assets/broadleaf_tree.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/bus_shelter.expect.json",
+      "local": "games/sundrift/assets/bus_shelter.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/bus_shelter.js",
+      "local": "games/sundrift/assets/bus_shelter.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/cats_eye.expect.json",
+      "local": "games/sundrift/assets/cats_eye.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/cats_eye.js",
+      "local": "games/sundrift/assets/cats_eye.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/cedar_tree.expect.json",
+      "local": "games/sundrift/assets/cedar_tree.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/cedar_tree.js",
+      "local": "games/sundrift/assets/cedar_tree.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/chevron_sign.expect.json",
+      "local": "games/sundrift/assets/chevron_sign.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/chevron_sign.js",
+      "local": "games/sundrift/assets/chevron_sign.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/chochin.expect.json",
+      "local": "games/sundrift/assets/chochin.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/chochin.js",
+      "local": "games/sundrift/assets/chochin.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/conbini.expect.json",
+      "local": "games/sundrift/assets/conbini.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/conbini.js",
+      "local": "games/sundrift/assets/conbini.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/farmhouse.expect.json",
+      "local": "games/sundrift/assets/farmhouse.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/farmhouse.js",
+      "local": "games/sundrift/assets/farmhouse.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/grass_tuft.expect.json",
+      "local": "games/sundrift/assets/grass_tuft.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/grass_tuft.js",
+      "local": "games/sundrift/assets/grass_tuft.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/guardrail_post.expect.json",
+      "local": "games/sundrift/assets/guardrail_post.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/guardrail_post.js",
+      "local": "games/sundrift/assets/guardrail_post.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/hero_coupe.expect.json",
+      "local": "games/sundrift/assets/hero_coupe.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/hero_coupe.js",
+      "local": "games/sundrift/assets/hero_coupe.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/hokora.expect.json",
+      "local": "games/sundrift/assets/hokora.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/hokora.js",
+      "local": "games/sundrift/assets/hokora.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/jizo.expect.json",
+      "local": "games/sundrift/assets/jizo.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/jizo.js",
+      "local": "games/sundrift/assets/jizo.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/kura.expect.json",
+      "local": "games/sundrift/assets/kura.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/kura.js",
+      "local": "games/sundrift/assets/kura.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/lamp_post.expect.json",
+      "local": "games/sundrift/assets/lamp_post.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/lamp_post.js",
+      "local": "games/sundrift/assets/lamp_post.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/maple_tree.expect.json",
+      "local": "games/sundrift/assets/maple_tree.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/maple_tree.js",
+      "local": "games/sundrift/assets/maple_tree.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/mountain_hut.expect.json",
+      "local": "games/sundrift/assets/mountain_hut.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/mountain_hut.js",
+      "local": "games/sundrift/assets/mountain_hut.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/pagoda.expect.json",
+      "local": "games/sundrift/assets/pagoda.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/pagoda.js",
+      "local": "games/sundrift/assets/pagoda.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/persimmon_tree.expect.json",
+      "local": "games/sundrift/assets/persimmon_tree.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/persimmon_tree.js",
+      "local": "games/sundrift/assets/persimmon_tree.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/power_pole.expect.json",
+      "local": "games/sundrift/assets/power_pole.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/power_pole.js",
+      "local": "games/sundrift/assets/power_pole.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/roadside_shrub.expect.json",
+      "local": "games/sundrift/assets/roadside_shrub.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/roadside_shrub.js",
+      "local": "games/sundrift/assets/roadside_shrub.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/sakura_tree.expect.json",
+      "local": "games/sundrift/assets/sakura_tree.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/sakura_tree.js",
+      "local": "games/sundrift/assets/sakura_tree.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/snow_pole.expect.json",
+      "local": "games/sundrift/assets/snow_pole.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/snow_pole.js",
+      "local": "games/sundrift/assets/snow_pole.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/stone_lantern.expect.json",
+      "local": "games/sundrift/assets/stone_lantern.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/stone_lantern.js",
+      "local": "games/sundrift/assets/stone_lantern.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/torii_gate.expect.json",
+      "local": "games/sundrift/assets/torii_gate.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/torii_gate.js",
+      "local": "games/sundrift/assets/torii_gate.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/traffic_mirror.expect.json",
+      "local": "games/sundrift/assets/traffic_mirror.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/traffic_mirror.js",
+      "local": "games/sundrift/assets/traffic_mirror.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/tunnel_portal.expect.json",
+      "local": "games/sundrift/assets/tunnel_portal.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/tunnel_portal.js",
+      "local": "games/sundrift/assets/tunnel_portal.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/vending_machine.expect.json",
+      "local": "games/sundrift/assets/vending_machine.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/vending_machine.js",
+      "local": "games/sundrift/assets/vending_machine.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/weeping_cherry.expect.json",
+      "local": "games/sundrift/assets/weeping_cherry.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/weeping_cherry.js",
+      "local": "games/sundrift/assets/weeping_cherry.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/wildflowers.expect.json",
+      "local": "games/sundrift/assets/wildflowers.expect.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/assets/wildflowers.js",
+      "local": "games/sundrift/assets/wildflowers.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/index.html",
+      "local": "games/sundrift/index.html"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/rig.js",
+      "local": "games/sundrift/rig.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/ambience.js",
+      "local": "games/sundrift/src/ambience.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/atmos.js",
+      "local": "games/sundrift/src/atmos.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/audio.js",
+      "local": "games/sundrift/src/audio.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/buildings.js",
+      "local": "games/sundrift/src/buildings.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/camera.js",
+      "local": "games/sundrift/src/camera.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/car.js",
+      "local": "games/sundrift/src/car.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/city.js",
+      "local": "games/sundrift/src/city.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/citycars.js",
+      "local": "games/sundrift/src/citycars.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/citydetail.js",
+      "local": "games/sundrift/src/citydetail.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/citypeople.js",
+      "local": "games/sundrift/src/citypeople.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/cityprops.js",
+      "local": "games/sundrift/src/cityprops.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/citysteam.js",
+      "local": "games/sundrift/src/citysteam.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/citystreet.js",
+      "local": "games/sundrift/src/citystreet.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/citytrain.js",
+      "local": "games/sundrift/src/citytrain.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/config.js",
+      "local": "games/sundrift/src/config.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/daylight.js",
+      "local": "games/sundrift/src/daylight.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/debris.js",
+      "local": "games/sundrift/src/debris.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/farm.js",
+      "local": "games/sundrift/src/farm.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/farmland.js",
+      "local": "games/sundrift/src/farmland.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/field.js",
+      "local": "games/sundrift/src/field.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/fx.js",
+      "local": "games/sundrift/src/fx.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/ground.js",
+      "local": "games/sundrift/src/ground.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/hud.js",
+      "local": "games/sundrift/src/hud.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/input.js",
+      "local": "games/sundrift/src/input.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/instancing.js",
+      "local": "games/sundrift/src/instancing.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/landmarks.js",
+      "local": "games/sundrift/src/landmarks.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/main.js",
+      "local": "games/sundrift/src/main.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/neon.js",
+      "local": "games/sundrift/src/neon.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/offroad.js",
+      "local": "games/sundrift/src/offroad.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/pagetv.js",
+      "local": "games/sundrift/src/pagetv.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/platform.js",
+      "local": "games/sundrift/src/platform.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/post.js",
+      "local": "games/sundrift/src/post.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/records.js",
+      "local": "games/sundrift/src/records.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/rooms.js",
+      "local": "games/sundrift/src/rooms.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/scoring.js",
+      "local": "games/sundrift/src/scoring.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/screens.js",
+      "local": "games/sundrift/src/screens.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/settings.js",
+      "local": "games/sundrift/src/settings.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/share.js",
+      "local": "games/sundrift/src/share.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/terrain.js",
+      "local": "games/sundrift/src/terrain.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/track.js",
+      "local": "games/sundrift/src/track.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/src/world.js",
+      "local": "games/sundrift/src/world.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/sundrift/31d94de8e3256597b9b66881b656e5c112f75734/game/surfaces.js",
+      "local": "games/sundrift/surfaces.js"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/96-97.pdf",
+      "local": "assets/work/erdos-96-97/96-97.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/96-97.tex",
+      "local": "assets/work/erdos-96-97/96-97.tex"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/Erdos9697Complete.lean",
+      "local": "assets/work/erdos-96-97/Erdos9697Complete.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/README.md",
+      "local": "assets/work/erdos-96-97/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/CITATION.cff",
+      "local": "assets/work/erdos-96-97/CITATION.cff"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/lake-manifest.json",
+      "local": "assets/work/erdos-96-97/lake-manifest.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/lakefile.toml",
+      "local": "assets/work/erdos-96-97/lakefile.toml"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/erdos-96-97-proof/90fd28e53183f44ae8271b8e71590ed18eb1c28b/lean-toolchain",
+      "local": "assets/work/erdos-96-97/lean-toolchain"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/README.md",
+      "local": "assets/work/conjectures/problems/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-108/README.md",
+      "local": "assets/work/conjectures/problems/erdos-108/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-108/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/erdos-108/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-108/lean/Erdos108.lean",
+      "local": "assets/work/conjectures/problems/erdos-108/lean/Erdos108.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-108/lean/README.md",
+      "local": "assets/work/conjectures/problems/erdos-108/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-108/paper/README.md",
+      "local": "assets/work/conjectures/problems/erdos-108/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-108/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/erdos-108/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-14/README.md",
+      "local": "assets/work/conjectures/problems/erdos-14/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-14/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/erdos-14/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-14/lean/Erdos14_PartI.lean",
+      "local": "assets/work/conjectures/problems/erdos-14/lean/Erdos14_PartI.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-14/lean/Erdos14_PartII_Counterexample.lean",
+      "local": "assets/work/conjectures/problems/erdos-14/lean/Erdos14_PartII_Counterexample.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-14/lean/README.md",
+      "local": "assets/work/conjectures/problems/erdos-14/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-14/paper/README.md",
+      "local": "assets/work/conjectures/problems/erdos-14/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-14/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/erdos-14/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-196/README.md",
+      "local": "assets/work/conjectures/problems/erdos-196/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-196/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/erdos-196/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-196/lean/Erdos196.lean",
+      "local": "assets/work/conjectures/problems/erdos-196/lean/Erdos196.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-196/lean/README.md",
+      "local": "assets/work/conjectures/problems/erdos-196/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-196/paper/README.md",
+      "local": "assets/work/conjectures/problems/erdos-196/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-196/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/erdos-196/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-272/README.md",
+      "local": "assets/work/conjectures/problems/erdos-272/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-272/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/erdos-272/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-272/lean/Main.lean",
+      "local": "assets/work/conjectures/problems/erdos-272/lean/Main.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-272/lean/README.md",
+      "local": "assets/work/conjectures/problems/erdos-272/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-272/paper/README.md",
+      "local": "assets/work/conjectures/problems/erdos-272/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-272/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/erdos-272/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-354/README.md",
+      "local": "assets/work/conjectures/problems/erdos-354/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-354/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/erdos-354/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-354/lean/Erdos354.lean",
+      "local": "assets/work/conjectures/problems/erdos-354/lean/Erdos354.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-354/lean/README.md",
+      "local": "assets/work/conjectures/problems/erdos-354/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-354/paper/README.md",
+      "local": "assets/work/conjectures/problems/erdos-354/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-354/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/erdos-354/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-944/README.md",
+      "local": "assets/work/conjectures/problems/erdos-944/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-944/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/erdos-944/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-944/lean/README.md",
+      "local": "assets/work/conjectures/problems/erdos-944/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-944/lean/erdos944.lean",
+      "local": "assets/work/conjectures/problems/erdos-944/lean/erdos944.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-944/paper/README.md",
+      "local": "assets/work/conjectures/problems/erdos-944/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-944/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/erdos-944/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-96/README.md",
+      "local": "assets/work/conjectures/problems/erdos-96/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-96/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/erdos-96/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-96/lean/README.md",
+      "local": "assets/work/conjectures/problems/erdos-96/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-96/lean/erdos96.lean",
+      "local": "assets/work/conjectures/problems/erdos-96/lean/erdos96.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-96/paper/README.md",
+      "local": "assets/work/conjectures/problems/erdos-96/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/erdos-96/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/erdos-96/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-15/README.md",
+      "local": "assets/work/conjectures/problems/green-15/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-15/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/green-15/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-15/lean/Green15.lean",
+      "local": "assets/work/conjectures/problems/green-15/lean/Green15.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-15/lean/README.md",
+      "local": "assets/work/conjectures/problems/green-15/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-15/paper/README.md",
+      "local": "assets/work/conjectures/problems/green-15/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-15/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/green-15/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-40/README.md",
+      "local": "assets/work/conjectures/problems/green-40/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-40/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/green-40/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-40/lean/README.md",
+      "local": "assets/work/conjectures/problems/green-40/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-40/paper/README.md",
+      "local": "assets/work/conjectures/problems/green-40/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-40/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/green-40/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-47/README.md",
+      "local": "assets/work/conjectures/problems/green-47/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-47/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/green-47/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-47/lean/Green47-COUNTEREXAMPLE-UPLOAD.lean",
+      "local": "assets/work/conjectures/problems/green-47/lean/Green47-COUNTEREXAMPLE-UPLOAD.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-47/lean/README.md",
+      "local": "assets/work/conjectures/problems/green-47/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-47/paper/README.md",
+      "local": "assets/work/conjectures/problems/green-47/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-47/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/green-47/paper/proof.pdf"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-51/README.md",
+      "local": "assets/work/conjectures/problems/green-51/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-51/SHA256SUMS",
+      "local": "assets/work/conjectures/problems/green-51/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-51/lean/README.md",
+      "local": "assets/work/conjectures/problems/green-51/lean/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-51/lean/green51onehalf.lean",
+      "local": "assets/work/conjectures/problems/green-51/lean/green51onehalf.lean"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-51/paper/README.md",
+      "local": "assets/work/conjectures/problems/green-51/paper/README.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lkruer/conjectures/e88dec4c88e42824b4acd3f9559febe67115471b/problems/green-51/paper/proof.pdf",
+      "local": "assets/work/conjectures/problems/green-51/paper/proof.pdf"
+    }
+  ]
+}

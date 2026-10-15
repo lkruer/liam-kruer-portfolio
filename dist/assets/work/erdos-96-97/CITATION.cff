@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when using this work."
+title: "Unit distances in convex polygons"
+authors:
+  - family-names: Kruer
+    given-names: Liam
+  - family-names: Kohlmeyer
+    given-names: Jensen
+  - family-names: Price
+    given-names: Liam
+repository-code: "https://github.com/lkruer/erdos-96-97-proof"
+url: "https://github.com/lkruer/erdos-96-97-proof"
+preferred-citation:
+  type: unpublished
+  title: "Unit distances in convex polygons"
+  authors:
+    - family-names: Kruer
+      given-names: Liam
+    - family-names: Kohlmeyer
+      given-names: Jensen
+    - family-names: Price
+      given-names: Liam
+  year: 2026
+  notes: "Manuscript with a Lean 4 formalization."
+  url: "https://github.com/lkruer/erdos-96-97-proof"

@@ -1,0 +1,719 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\conv}{conv}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\Hh}{\mathcal H}
+
+\title{Unit distances in convex polygons}
+\author{Liam Kruer}
+\author{Jensen Kohlmeyer}
+\author{Liam Price}
+\date{}
+\subjclass[2020]{Primary 52C10; Secondary 52A10, 05C62}
+\keywords{Unit distances, convex position, minimum degree, Erd\H{o}s problems}
+
+\begin{document}
+\begin{abstract}
+For every sufficiently large $n$, we construct $n$ points in strictly convex
+position such that every point has at least
+$(\frac14-o(1))\log_2\log_2 n$ unit-distance neighbours and the set determines
+at least $(\frac14-o(1))n\log_2\log_2 n$ unordered unit-distance pairs.
+The points can be confined to two arbitrarily small disks whose centres are
+one unit apart, so their unit-distance graph is bipartite.
+These results give negative answers to Erd\H{o}s Problems 96 and 97 and to
+the more general conjecture that some universal bound on equal-distance
+multiplicity holds at a suitably chosen vertex of every convex polygon.
+The construction combines the middle levels graph, products of small
+rotations with bounded exponents, and independent perturbations of the radii; vertex deletion
+and unions of slightly rotated copies give the minimum-degree bounds at
+every sufficiently large cardinality.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+A finite set $P\subset\R^2$ is in \emph{strictly convex position} if
+$p\notin\conv(P\setminus\{p\})$ for every $p\in P$.
+Thus every point is a vertex of its convex hull.
+Write $u(P)$ for the number of unordered pairs of points of $P$ at distance
+one, and, for nonempty $P$, put
+\[
+ d_1(p;P)=\#\{q\in P:\|p-q\|=1\},\qquad
+ \delta_1(P)=\min_{p\in P}d_1(p;P).
+\]
+The \emph{unit-distance graph} of $P$ has vertex set $P$ and joins precisely
+the pairs at distance one. In particular, $u(P)$ is its number of edges and
+$\delta_1(P)$ is its minimum degree. Let $U_c(n)$ be the maximum of $u(P)$
+over strictly convex $n$-point sets. All logarithms below are to base two,
+and $B(c,\eta)$ denotes the open Euclidean disk with centre $c$ and radius
+$\eta$.
+
+Erd\H{o}s Problem 96 asks whether $U_c(n)=O(n)$.
+Problem 97 asks whether every convex polygon has a vertex from which no
+four other vertices are equidistant. The general version asks whether
+there is an integer $k$ such that every convex polygon has a vertex from
+which no $k$ other vertices are equidistant
+\cite{Bloom96,Bloom97,FormalConjectures}.
+The distance in these latter questions is allowed to depend on the vertex.
+Our examples use the same distance, namely one, at every vertex.
+
+\begin{theorem}\label{thm:main}
+There are absolute constants $C>0$ and $n_0$ such that, for every integer
+$n\ge n_0$ and every $0<\eta<1/2$, there is a strictly convex $n$-point set
+$P\subset\R^2$ satisfying
+\begin{equation}\label{eq:main}
+ \min\left\{\delta_1(P),\frac{u(P)}n\right\}
+ \ge \frac14\log\log n-C\log\log\log n.
+\end{equation}
+Moreover,
+$P\subset B((0,-1/2),\eta)\cup B((0,1/2),\eta)$.
+Its unit-distance graph is bipartite, and its two vertex classes are
+separated by the horizontal axis.
+\end{theorem}
+
+\begin{corollary}\label{cor:problems}
+We have $U_c(n)=\Omega(n\log\log n)$.
+For every integer $k\ge1$ and every sufficiently large integer $n$, there
+is a strictly convex $n$-point set in which every point has at least $k$
+unit-distance neighbours. Both assertions hold with the two-disk
+restriction in Theorem~\ref{thm:main}.
+Consequently, Problem 96, Problem 97, and its general fixed-$k$ version
+all have negative answers.
+\end{corollary}
+
+\begin{proof}
+The right-hand side of \eqref{eq:main} tends to infinity and is
+$(1/4-o(1))\log\log n$. The first assertion follows from the bound for
+$u(P)$, and the second from the bound for $\delta_1(P)$.
+Taking $k=4$ disproves Problem 97, while arbitrary $k$ disproves its
+general version.
+\end{proof}
+
+Our construction starts from the middle levels graph. We realize its
+incidences as exact unit distances after small rotations, and use
+independent perturbations of the radii to make all bounded products of
+the rotations distinct. A strict supporting-line inequality preserves
+every point as a vertex of the convex hull. Vertex deletion and unions
+of slightly rotated copies then give simultaneous minimum-degree and
+edge-count bounds at every sufficiently large cardinality. The use of
+commuting rotations and mixed derivatives to separate configurations is
+adapted from Swanepoel and Valtr~\cite{SV}. For comparison,
+Aggarwal~\cite{Aggarwal} proved $U_c(n)\le n\log n+4n$; our lower bound
+does not determine the order of $U_c(n)$.
+
+The following finite construction is the geometric input to the proof.
+The extra supporting-line inequality will allow unions of slightly
+rotated copies without losing any vertices.
+
+\begin{theorem}\label{thm:finite}
+For integers $d,q\ge2$, put
+\begin{equation}\label{eq:parameters}
+ v_d=\binom{2d}{d},\qquad m_d=\frac d2\binom{2d}{d},\qquad
+ N_{d,q}=v_dq^{m_d}.
+\end{equation}
+For every $0<\eta<1/2$, there is a set $P\subset\R^2\setminus\{0\}$
+with
+\begin{equation}\label{eq:finite-count}
+ |P|=N_{d,q},\qquad
+ u(P)\ge \frac d2\left(1-\frac1q\right)N_{d,q},
+\end{equation}
+such that $P\subset B((0,-1/2),\eta)\cup B((0,1/2),\eta)$ and
+\begin{equation}\label{eq:support}
+ \langle x,y-x\rangle<0\qquad(x,y\in P,\ x\ne y).
+\end{equation}
+In particular, $P$ is in strictly convex position.
+\end{theorem}
+
+\section{Products of rotations}
+
+Identify $\R^2$ with $\C$, with inner product
+$\langle z,w\rangle=\operatorname{Re}(\overline z w)$, and define
+$\Hh(z,w)=\langle z,w-z\rangle$.
+If a finite set satisfies \eqref{eq:support}, the linear functional
+$x\mapsto\langle z,x\rangle$ is uniquely maximized at $z$ for each point
+$z$ of the set. This proves strict convexity.
+The identity
+$2\Hh(z,w)=|w|^2-|z|^2-|w-z|^2$ also shows that distinct points of equal
+modulus satisfy $\Hh(z,w)=-|w-z|^2/2<0$.
+For unit complex numbers $u,v$, we have
+\begin{equation}\label{eq:rotation-bound}
+ |\Hh(zu,wv)-\Hh(z,w)|
+ \le |z||w|\bigl(|u-1|+|v-1|\bigr),
+\end{equation}
+because the difference equals
+$\operatorname{Re}(\overline z w(\overline u v-1))$.
+
+\begin{lemma}\label{lem:products}
+Let $G=(L\sqcup R,E)$ be a finite simple bipartite graph with
+$v=|L|+|R|$ and $m=|E|\ge1$; write the endpoints of $e$ as
+$\ell(e)\in L$ and $r(e)\in R$.
+Fix an integer $q\ge2$.
+Suppose that nonzero complex numbers $b_i$, indexed by $L\sqcup R$,
+have pairwise distinct moduli at most one, and that unit complex numbers
+$w_e$, indexed by $E$, satisfy
+\begin{equation}\label{eq:product-hypotheses}
+ |b_{\ell(e)}-b_{r(e)}w_e|=1,\qquad
+ \Hh(b_i,b_j)<-2H\quad(i\ne j),\qquad
+ H=(q-1)\sum_{e\in E}|w_e-1|.
+\end{equation}
+Suppose also that the products
+$W_{\mathbf a}=\prod_{e\in E}w_e^{a_e}$, where
+$\mathbf a\in\{0,\ldots,q-1\}^{E}$, are pairwise distinct.
+Then
+\begin{equation}\label{eq:product-set}
+ P=\{b_iW_{\mathbf a}:i\in L\sqcup R,\
+                   \mathbf a\in\{0,\ldots,q-1\}^{E}\}
+\end{equation}
+satisfies \eqref{eq:support}, has $vq^m$ points, and determines at least
+$m(q-1)q^{m-1}$ unit-distance pairs.
+Moreover, $|b_iW_{\mathbf a}-b_i|\le H$ for every index.
+\end{lemma}
+
+\begin{proof}
+Equality $b_iW_{\mathbf a}=b_jW_{\mathbf b}$ implies $i=j$ by taking
+moduli, and then $\mathbf a=\mathbf b$ by cancellation and the assumed
+distinctness of the products. Thus the indexing is injective.
+Telescoping products gives
+\[
+ |W_{\mathbf a}-1|
+ \le\sum_{e\in E}|w_e^{a_e}-1|
+ \le\sum_{e\in E}a_e|w_e-1|\le H.
+\]
+For $i\ne j$, inequality \eqref{eq:rotation-bound} and
+\eqref{eq:product-hypotheses} give
+$\Hh(b_iW_{\mathbf a},b_jW_{\mathbf b})<0$.
+For $i=j$ and $\mathbf a\ne\mathbf b$, the points are distinct and have
+equal modulus, so the same conclusion follows from the preceding
+identity for $\Hh$. The displacement bound follows from $|b_i|\le1$.
+
+Let $\mathbf1_e$ be the coordinate vector at $e$.
+For each $e\in E$ and each $\mathbf a$ with $a_e\le q-2$, the pair
+\[
+ \bigl\{b_{\ell(e)}W_{\mathbf a},\,
+        b_{r(e)}W_{\mathbf a+\mathbf1_e}\bigr\}
+\]
+has distance one, since $W_{\mathbf a+\mathbf1_e}=W_{\mathbf a}w_e$.
+There are $m(q-1)q^{m-1}$ such pairs. Equality of two of these unordered
+pairs cannot interchange the label classes $L$ and $R$, by injectivity
+of the vertex indexing. The two endpoint labels therefore agree, the
+simplicity of $G$ identifies the edge, and the $L$ endpoint identifies
+$\mathbf a$. Hence all the counted pairs are distinct.
+\end{proof}
+
+\section{The geometric construction}
+
+Fix $d\ge2$ and let
+$L=\binom{[2d-1]}{d-1}$ and $R=\binom{[2d-1]}d$, where
+$[2d-1]=\{1,\ldots,2d-1\}$.
+Join $A\in L$ to $B\in R$ when $A\subset B$.
+This is the middle levels graph: it is the subgraph of the
+$(2d-1)$-dimensional hypercube induced by its two middle levels.
+Every lower-level vertex has $d$ extensions and every upper-level
+vertex has $d$ immediate subsets. Thus the graph is simple and
+$d$-regular, with $v_d$ vertices and $m_d$ edges as in
+\eqref{eq:parameters}.
+Set $z_j=5^{j-1}$ and, for every label $A\in L\sqcup R$, define
+\begin{equation}\label{eq:digits}
+ X_A=\sum_{j\in A}z_j,\qquad T_A=1+\sum_{j\in A}z_j^2.
+\end{equation}
+For an edge $A\subset B=A\cup\{j\}$ we have
+$X_B-X_A=z_j>0$ and $T_B-T_A=(X_B-X_A)^2$.
+
+\begin{lemma}\label{lem:digits}
+Distinct labels have distinct $X$-values and distinct $T$-values, and
+\begin{equation}\label{eq:digit-bound}
+ |T_B-T_A|<\frac{50}{27}(X_B-X_A)^2\qquad(A\ne B).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $h$ be the largest exponent occurring in the symmetric difference
+of the two labels, and put $M=5^h$.
+The dominant digit gives
+\[
+ |X_B-X_A|\ge M-\sum_{j=0}^{h-1}5^j>\frac34M,\qquad
+ |T_B-T_A|\le M^2+\sum_{j=0}^{h-1}25^j<\frac{25}{24}M^2.
+\]
+These inequalities imply \eqref{eq:digit-bound} and distinctness of the
+$X$-values. The lower bound
+$|T_B-T_A|\ge M^2-\sum_{j=0}^{h-1}25^j>0$ proves distinctness of the
+$T$-values.
+\end{proof}
+
+Write $C(x,t)=x^2+t/2$ and $D(x,t)=-x^2+t/2$.
+For $\varepsilon>0$, define
+\begin{equation}\label{eq:seed}
+ \begin{aligned}
+ a_A(\varepsilon)
+   &=\varepsilon X_A+\ii\bigl(-\tfrac12+
+                    \varepsilon^2 C(X_A,T_A)\bigr),&&A\in L,\\
+ a_B(\varepsilon)
+   &=-\varepsilon X_B+\ii\bigl(\tfrac12+
+                    \varepsilon^2 D(X_B,T_B)\bigr),&&B\in R.
+ \end{aligned}
+\end{equation}
+Throughout the construction, all asymptotic estimates refer to
+$\varepsilon\to0^+$ with $d$ and the finite label sets fixed.
+Their constants may depend on these data.
+
+\begin{lemma}\label{lem:seed}
+There are $c>0$ and $\varepsilon_0>0$ such that, for
+$0<\varepsilon<\varepsilon_0$, the points in \eqref{eq:seed} have
+pairwise distinct moduli in $(0,1)$ and satisfy
+$\Hh(a_i(\varepsilon),a_j(\varepsilon))<-c\varepsilon^2$ for $i\ne j$.
+For an edge with data $(x,t)=(X_A,T_A)$ and $(y,u)=(X_B,T_B)$,
+\begin{equation}\label{eq:distance-error}
+ |a_B(\varepsilon)-a_A(\varepsilon)|^2
+ =1+\varepsilon^4\bigl(D(y,u)-C(x,t)\bigr)^2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For two labels of the same class, with data $(x,t)$ and $(y,u)$, direct
+expansion gives, respectively,
+\begin{align*}
+ \Hh(a_A,a_{A'})
+ &=\varepsilon^2\left(-\frac{(y-x)^2}{2}-\frac{u-t}{4}\right)
+   +\varepsilon^4 C(x,t)\bigl(C(y,u)-C(x,t)\bigr),\\
+ \Hh(a_B,a_{B'})
+ &=\varepsilon^2\left(-\frac{(y-x)^2}{2}+\frac{u-t}{4}\right)
+   +\varepsilon^4 D(x,t)\bigl(D(y,u)-D(x,t)\bigr).
+\end{align*}
+By \eqref{eq:digit-bound}, either quadratic coefficient is strictly less
+than $-(y-x)^2/27<0$.
+For labels from opposite classes, in either order, the support
+expression tends to $-1/2$.
+Since there are finitely many ordered pairs, these facts give a common
+$c>0$ and a common sufficiently small interval with the claimed support
+inequalities.
+The exact modulus formulas are
+\begin{equation}\label{eq:radii}
+ \begin{aligned}
+ |a_A|^2&=\tfrac14-\tfrac12\varepsilon^2T_A
+              +\varepsilon^4 C(X_A,T_A)^2,&&A\in L,\\
+ |a_B|^2&=\tfrac14+\tfrac12\varepsilon^2T_B
+              +\varepsilon^4 D(X_B,T_B)^2,&&B\in R.
+ \end{aligned}
+\end{equation}
+Within a class, distinct $T$-values give a nonzero quadratic coefficient
+in the difference of any two squared moduli. Between classes that
+coefficient is $(T_A+T_B)/2>0$. Thus all moduli are distinct for small
+positive $\varepsilon$; they tend to $1/2$, so they lie in $(0,1)$.
+Finally, if $M=D(y,u)-C(x,t)$, then
+$|a_B-a_A|^2=\varepsilon^2(x+y)^2+(1+\varepsilon^2M)^2$.
+On an edge, $u-t=(y-x)^2$, so $(x+y)^2+2M=0$, proving
+\eqref{eq:distance-error}.
+\end{proof}
+
+\begin{lemma}\label{lem:correction}
+For every edge $e=(A,B)$, and all sufficiently small positive
+$\varepsilon$, there is a continuous choice of a unit complex number
+$w_e(\varepsilon)$ such that
+\begin{equation}\label{eq:correction}
+ |a_A-a_Bw_e|=1,\qquad
+ w_e-1=O(\varepsilon^3),\qquad
+ \operatorname{Im}(\overline{a_A}a_Bw_e)<0.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Fix an edge, abbreviate its data by $(x,t),(y,u)$, and put
+$C=C(x,t)$, $D=D(y,u)$, and $M=D-C$.
+Write
+$Z=\overline{a_A}a_B=\xi+\ii\varepsilon\tau$, where
+$\tau=(x-y)/2+\varepsilon^2(xD+yC)$.
+Thus $Z\to-1/4$ and $\tau\to(x-y)/2<0$.
+Define
+\begin{equation}\label{eq:exact-w}
+ F=\tau^2-\varepsilon^2M^2\xi-\tfrac14\varepsilon^6M^4,
+ \qquad
+ w=\frac{\xi+\tfrac12\varepsilon^4M^2-
+                  \ii\varepsilon\sqrt F}{Z}.
+\end{equation}
+For small positive $\varepsilon$, both $Z\ne0$ and $F>0$ hold.
+The identity
+$(\xi+\varepsilon^4M^2/2)^2+\varepsilon^2F
+ =\xi^2+\varepsilon^2\tau^2=|Z|^2$
+shows that $|w|=1$. Moreover,
+\[
+ |a_A-a_Bw|^2
+ =|a_A-a_B|^2-\varepsilon^4M^2=1,\qquad
+ \operatorname{Im}(Zw)=-\varepsilon\sqrt F<0.
+\]
+To bound the correction, observe that $\sqrt F-\tau$ has a positive
+limit and
+$\sqrt F+\tau=(F-\tau^2)/(\sqrt F-\tau)=O(\varepsilon^2)$.
+Consequently
+$w-1=Z^{-1}(\varepsilon^4M^2/2-
+\ii\varepsilon(\sqrt F+\tau))=O(\varepsilon^3)$.
+All defining functions are continuous on a sufficiently small positive
+interval.
+\end{proof}
+
+We next separate the bounded products while preserving the strict
+inequalities and the exact unit distances.
+For $r,s>0$ satisfying $-1<c(r,s)<1$, define
+\begin{equation}\label{eq:angle}
+ c(r,s)=\frac{r^2+s^2-1}{2rs},\qquad
+ \gamma(r,s)=\arccos c(r,s)\in(0,\pi).
+\end{equation}
+This is the angle opposite the unit side of a nondegenerate triangle
+with other side lengths $r,s$.
+
+\begin{lemma}\label{lem:separation}
+Let $G=(L\sqcup R,E)$ be a finite simple bipartite graph, and let
+$U\subset(0,\infty)^{L\sqcup R}$ be nonempty and open, such that
+$-1<c(\rho_{\ell(e)},\rho_{r(e)})<1$ for every edge throughout $U$.
+Fix real numbers $\theta_e$ and an integer $q\ge2$, and put
+\[
+ w_e(\boldsymbol\rho)
+ =\exp\bigl(\ii(\theta_e-
+       \gamma(\rho_{\ell(e)},\rho_{r(e)}))\bigr).
+\]
+There is a vector in $U$ for which the products
+$\prod_{e\in E}w_e(\boldsymbol\rho)^{a_e}$,
+$\mathbf a\in\{0,\ldots,q-1\}^{E}$, are pairwise distinct.
+\end{lemma}
+
+\begin{proof}
+First, throughout the domain in \eqref{eq:angle},
+\begin{equation}\label{eq:mixed}
+ \gamma_{rs}(r,s)
+ =-\frac{c_{rs}(1-c^2)+c\,c_r c_s}{(1-c^2)^{3/2}}
+ =\frac{1}{r^2s^2(1-c^2)^{3/2}}>0.
+\end{equation}
+Indeed,
+$c_r=(r^2-s^2+1)/(2r^2s)$,
+$c_s=(s^2-r^2+1)/(2rs^2)$, and
+$c_{rs}=-(r^2+s^2+1)/(2r^2s^2)$.
+Substituting these expressions gives
+$-c_{rs}(1-c^2)-c\,c_r c_s=1/(r^2s^2)$, proving
+\eqref{eq:mixed} by differentiation of $\arccos c$.
+
+For distinct exponent vectors $\mathbf a,\mathbf b$, let
+$\lambda_e=a_e-b_e$, and define
+\[
+ \Phi(\boldsymbol\rho)
+ =\sum_{e\in E}\lambda_e\theta_e
+  -\sum_{e\in E}\lambda_e
+       \gamma(\rho_{\ell(e)},\rho_{r(e)}).
+\]
+The two products agree exactly on the relatively closed subset of $U$
+where $\exp(\ii\Phi)=1$.
+This subset has empty interior. Otherwise there would be a nonempty
+open ball on which the continuous function $\Phi$ takes values in
+$2\pi\mathbb Z$, and hence is constant. Choose $e_0$ with
+$\lambda_{e_0}\ne0$. Because the graph is simple, every summand other
+than $e_0$ depends on at most one of the two coordinates
+$\rho_{\ell(e_0)},\rho_{r(e_0)}$.
+The corresponding mixed derivative of $\Phi$ is therefore
+$-\lambda_{e_0}\gamma_{rs}
+ (\rho_{\ell(e_0)},\rho_{r(e_0)})$, which is nonzero by
+\eqref{eq:mixed}. This contradicts constancy.
+There are only finitely many pairs of exponent vectors.
+A finite union of relatively closed sets with empty interior cannot
+cover a nonempty open set: remove the sets successively, retaining a
+nonempty relatively open subset at each step.
+A point outside their union has the required property.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:finite}]
+Fix $d,q$ and $\eta$, and construct the graph, seed points, and
+corrections above. Put $c_i=-\ii/2$ for $i\in L$ and $c_i=\ii/2$ for
+$i\in R$.
+By Lemmas~\ref{lem:seed} and \ref{lem:correction},
+$H_0=(q-1)\sum_e|w_e(\varepsilon)-1|=O(\varepsilon^3)$,
+whereas the common support margin has order $\varepsilon^2$.
+Thus one can fix a sufficiently small positive $\varepsilon$ for which
+the moduli are pairwise distinct and in $(0,1)$, and
+\begin{equation}\label{eq:open-conditions}
+ \Hh(a_i,a_j)<-2H_0\quad(i\ne j),\qquad
+ |a_i-c_i|+H_0<\eta\quad\text{for all }i.
+\end{equation}
+The second condition follows also from $a_i\to c_i$.
+This choice is made after fixing $d$ and $q$; no estimate uniform in
+those parameters is required.
+
+Write $a_i=\rho_i^0\alpha_i$ with $|\alpha_i|=1$ and
+$\rho_i^0>0$, and keep the directions $\alpha_i$ fixed.
+For $e=(A,B)$ choose a real $\theta_e$ satisfying
+$\exp(\ii\theta_e)=\alpha_A/\alpha_B$.
+At the original radii, \eqref{eq:correction} gives
+\[
+ \operatorname{Re}(\overline{a_A}a_Bw_e)
+   =\frac{(\rho_A^0)^2+(\rho_B^0)^2-1}{2},\qquad
+ |\overline{a_A}a_Bw_e|=\rho_A^0\rho_B^0.
+\]
+The strictly negative imaginary part gives
+$-1<c(\rho_A^0,\rho_B^0)<1$. Writing
+$\gamma_e^0=\gamma(\rho_A^0,\rho_B^0)$, we have
+$\overline{a_A}a_Bw_e=\rho_A^0\rho_B^0e^{-\ii\gamma_e^0}$;
+hence $w_e=e^{\ii(\theta_e-\gamma_e^0)}$ at the original vector.
+
+For nearby positive radii $\boldsymbol\rho$, set
+$b_i=\rho_i\alpha_i$ and use the functions $w_e(\boldsymbol\rho)$ in
+Lemma~\ref{lem:separation}. Whenever all edge pairs are feasible,
+\[
+ |b_A-b_Bw_e(\boldsymbol\rho)|^2
+ =\rho_A^2+\rho_B^2-
+                  2\rho_A\rho_B\cos\gamma(\rho_A,\rho_B)=1.
+\]
+Write $H(\boldsymbol\rho)=(q-1)\sum_e|w_e(\boldsymbol\rho)-1|$.
+All other required conditions are strict and continuous at
+$\boldsymbol\rho^0$.
+There is therefore a nonempty open neighbourhood $U$ on which the
+radii remain pairwise distinct and in $(0,1)$, every edge pair is
+feasible, and
+\[
+ \Hh(b_i,b_j)<-2H(\boldsymbol\rho)\quad(i\ne j),\qquad
+ |b_i-c_i|+H(\boldsymbol\rho)<\eta.
+\]
+Lemma~\ref{lem:separation} supplies a vector in $U$ with all bounded
+products distinct. Applying Lemma~\ref{lem:products} gives a set $P$
+satisfying \eqref{eq:support}, with $v_dq^{m_d}$ points and at least
+$m_d(q-1)q^{m_d-1}$ unit-distance pairs. Since $m_d/v_d=d/2$,
+these are exactly the bounds in \eqref{eq:finite-count}.
+The displacement bound in that lemma gives
+$|b_iW_{\mathbf a}-c_i|\le H(\boldsymbol\rho)+|b_i-c_i|<\eta$,
+which proves the required localization.
+\end{proof}
+
+\section{Minimum degree and prescribed cardinality}
+
+\begin{lemma}\label{lem:deletion}
+Let $G$ be a finite nonempty graph with
+$|E(G)|\ge\alpha|V(G)|$, where $\alpha>k$ and $k$ is a nonnegative
+integer. Then $G$ has a nonempty induced subgraph $H$ with minimum
+degree at least $k+1$ and $|E(H)|\ge\alpha|V(H)|$.
+\end{lemma}
+
+\begin{proof}
+Repeatedly delete a vertex of current degree at most $k$ whenever one
+exists. Deleting a vertex of degree $t\le k$ increases the quantity
+$|E|-\alpha|V|$ by $\alpha-t>0$.
+The process cannot delete every vertex: that quantity is initially
+nonnegative, would become positive after the first deletion, but is
+zero for the empty graph.
+The surviving graph has the asserted minimum degree, and the
+nonnegativity of the same quantity gives its edge-count bound.
+\end{proof}
+
+\begin{lemma}\label{lem:copies}
+Let $Q\subset\C\setminus\{0\}$ be finite and satisfy
+\eqref{eq:support}, and let $\mathcal O\subset\C$ be open with
+$Q\subset\mathcal O$.
+For any finite list of subsets $Q_1,\ldots,Q_t\subseteq Q$, there are
+rotations about the origin whose images of these subsets are pairwise
+disjoint and whose union lies in $\mathcal O$ and satisfies
+\eqref{eq:support}.
+The rotation angles may be chosen arbitrarily close to zero.
+\end{lemma}
+
+\begin{proof}
+Finiteness, continuity, and the strict support inequalities give a
+number $0<\varepsilon<\pi$ such that, whenever $|\theta|,|\phi|<\varepsilon$,
+we have $e^{\ii\theta}x\in\mathcal O$ for every $x\in Q$ and
+$\Hh(e^{\ii\theta}x,e^{\ii\phi}y)<0$ for all distinct $x,y\in Q$.
+Choose distinct angles $\theta_1,\ldots,\theta_t$ in this interval.
+Points arising from different elements of $Q$ satisfy the strict
+support inequality, so cannot coincide.
+For a fixed $x\in Q$ and $j\ne\ell$, the points
+$e^{\ii\theta_j}x$ and $e^{\ii\theta_\ell}x$ are distinct because
+$x\ne0$ and $0<|\theta_j-\theta_\ell|<2\pi$.
+They have equal modulus, so they too satisfy the strict support
+inequality in both orders. This proves all the assertions.
+\end{proof}
+
+\begin{proposition}\label{prop:threshold}
+For $k\ge1$, put $M_k=N_{2k+1,\,2k+2}$.
+For every integer $n\ge M_k^2$ and every $0<\eta<1/2$, there is a set
+$P$ satisfying \eqref{eq:support}, contained in
+$B((0,-1/2),\eta)\cup B((0,1/2),\eta)$, such that
+\begin{equation}\label{eq:threshold}
+ |P|=n,\qquad \delta_1(P)\ge k,\qquad u(P)\ge(k-1)n.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply Theorem~\ref{thm:finite} with $d=2k+1$ and $q=2k+2$.
+Its set has $M_k$ points and at least $\alpha M_k$ unit-distance pairs,
+where
+\[
+ \alpha=\frac{2k+1}{2}\left(1-\frac1{2k+2}\right)
+        =k+\frac1{4k+4}>k.
+\]
+Apply Lemma~\ref{lem:deletion} to its full unit-distance graph.
+The surviving vertex set $Q$ has size $s\le M_k$, minimum degree at
+least $k+1$, and $u(Q)\ge\alpha s$.
+It inherits \eqref{eq:support} and the two-disk restriction.
+In particular $s\ge k+2$.
+Choose a vertex $v$ of $Q$ whose degree is at most the average degree
+$2u(Q)/s$, and let $Q^-=Q\setminus\{v\}$.
+Then $|Q^-|=s-1$ and $\delta_1(Q^-)\ge k$. Moreover,
+\[
+ \frac{u(Q^-)}{s-1}
+ \ge\frac{u(Q)(s-2)}{s(s-1)}
+ \ge\alpha\frac{s-2}{s-1}
+ >k-\frac{k}{s-1}>k-1.
+\]
+Thus both $Q$ and $Q^-$ have minimum degree at least $k$ and at least
+$k-1$ unit-distance edges per vertex.
+
+Since $n\ge M_k^2\ge s^2$, there are nonnegative integers $a,b$ with
+$n=as+b(s-1)$.
+Indeed, choose $b\in\{0,\ldots,s-1\}$ with $b\equiv-n\pmod s$;
+then $a=(n-b(s-1))/s$ is an integer and is nonnegative because
+$n\ge s^2>(s-1)^2\ge b(s-1)$.
+Use Lemma~\ref{lem:copies}, with $\mathcal O$ equal to the union of the
+two prescribed disks, on $a$ copies of $Q$ and $b$ copies of $Q^-$.
+Their disjoint rotated images form a set $P$ with exactly $n$ points
+satisfying \eqref{eq:support} and the required localization.
+Every vertex retains its unit-distance neighbours within its own
+copy, so $\delta_1(P)\ge k$.
+Counting just the edges within individual copies gives
+$u(P)\ge a(k-1)s+b(k-1)(s-1)=(k-1)n$.
+Any additional edges between copies can only increase these bounds.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The elementary binomial estimates
+$4^d/(2d+1)\le\binom{2d}{d}\le4^d$ follow by comparing the largest
+coefficient in $(1+1)^{2d}$ with the sum of all its coefficients.
+Together with \eqref{eq:parameters}, they give
+\[
+ \log N_{d,d+1}
+ =\log v_d+\frac d2v_d\log(d+1),\qquad
+ \log\log\bigl(N_{d,d+1}^{\,2}\bigr)=2d+O(\log d).
+\]
+Consequently, for the strictly increasing sequence $M_k$ in
+Proposition~\ref{prop:threshold},
+\begin{equation}\label{eq:threshold-growth}
+ T_k:=\log\log(M_k^2)=4k+O(\log(k+1)).
+\end{equation}
+All constants here are absolute.
+For sufficiently large $n$, let $k$ be the largest integer with
+$M_k^2\le n$, and write $L=\log\log n$.
+Then $T_k\le L<T_{k+1}$.
+The lower estimate in \eqref{eq:threshold-growth} first gives
+$k=O(L)$, and the upper estimate then gives
+$k\ge L/4-O(\log L)$.
+Proposition~\ref{prop:threshold} therefore supplies a set with
+\[
+ \min\left\{\delta_1(P),\frac{u(P)}n\right\}
+ \ge k-1\ge\frac14\log\log n-C\log\log\log n
+\]
+for a suitable absolute $C$ and all $n$ beyond an absolute threshold.
+The construction works for every prescribed $\eta$ without changing
+that threshold.
+Each of the two disks has diameter $2\eta<1$, so it contains no
+unit-distance pair. Both disks lie strictly on opposite sides of the
+horizontal axis. Their intersections with $P$ thus give the claimed
+bipartition and separation.
+\end{proof}
+
+\begin{corollary}\label{cor:size}
+For every integer $k\ge2$ and every $0<\eta<1/2$, there is a strictly
+convex set $Q$ in the two prescribed disks with
+$\delta_1(Q)\ge k$ and
+\begin{equation}\label{eq:size}
+ |Q|\le N_{2k-1,\,2k}=2^{\,2^{\,4k+O(\log k)}}.
+\end{equation}
+In particular, a counterexample to Problem 97 exists with at most
+$3432\cdot2^{36036}$ vertices.
+\end{corollary}
+
+\begin{proof}
+Use Theorem~\ref{thm:finite} with $d=2k-1$ and $q=2k$.
+The number of unit-distance pairs per vertex is at least
+$\frac{2k-1}{2}(1-\frac1{2k})=k-1+\frac1{4k}>k-1$.
+Lemma~\ref{lem:deletion}, applied with deletion threshold $k-1$, leaves
+a nonempty induced subgraph of minimum degree at least $k$.
+Its vertex set inherits the geometric properties and has at most
+$N_{2k-1,2k}$ points. Since $k\ge2$, it has at least three vertices.
+The growth estimate follows from the same binomial bounds used above.
+For $k=4$, the parameters are $d=7$, $q=8$,
+$v_7=\binom{14}{7}=3432$, and $m_7=12012$; hence
+$N_{7,8}=3432\cdot8^{12012}=3432\cdot2^{36036}$.
+\end{proof}
+
+\begin{remark}
+The existence of strictly convex sets with arbitrarily large minimum
+unit-distance degree is equivalent to the unboundedness of
+$u(P)/|P|$ over strictly convex sets.
+One direction follows from $2u(P)=\sum_{p\in P}d_1(p;P)$;
+the other follows from Lemma~\ref{lem:deletion}, since strict convex
+position is inherited by subsets.
+Thus the existence-only consequences for the two Erd\H{o}s problems are
+logically linked. The quantitative simultaneous bounds and the control
+of every sufficiently large cardinality are the additional conclusions
+of Theorem~\ref{thm:main}.
+The perturbation used in Theorem~\ref{thm:finite} is an existence
+argument avoiding finitely many closed exceptional sets, not a
+numerical approximation. All counted distances are exactly one.
+The explicit quantities in \eqref{eq:parameters} and \eqref{eq:size}
+are cardinality bounds, not bounds on the bit complexity of coordinates.
+\end{remark}
+
+\section*{AI disclosure}
+The authors report that the argument originated in a disproof of
+Erd\H{o}s Problem~96 generated entirely by GPT~6 Astra, including the
+construction and its mathematical justification. The quantitative
+strengthening, the consequences for Problem~97 and its general
+fixed-$k$ version, and the extension to every sufficiently large
+cardinality were subsequently developed through further interaction
+with the model. The model also produced the exposition and
+\LaTeX{} manuscript. This disclosure describes the provenance of the
+argument; it does not supersede the attribution of previously
+published mathematical methods cited in the paper or constitute
+independent verification of the proofs. The human authors retain
+responsibility for the correctness of the mathematical claims, the
+accuracy of this disclosure, and the decision to submit or
+disseminate the work.
+
+\begin{thebibliography}{9}
+
+\bibitem{Aggarwal}
+A. Aggarwal,
+\emph{On unit distances in a convex polygon},
+Discrete Math. \textbf{338} (2015), 88--92.
+
+\bibitem{Bloom96}
+T. F. Bloom,
+\emph{Erd\H{o}s Problem \#96},
+\url{https://www.erdosproblems.com/96}.
+
+\bibitem{Bloom97}
+T. F. Bloom,
+\emph{Erd\H{o}s Problem \#97},
+\url{https://www.erdosproblems.com/97}.
+
+\bibitem{FormalConjectures}
+Google DeepMind and the Formal Conjectures contributors,
+\emph{Formal Conjectures},
+entries for Erd\H{o}s Problems~96 and~97,
+\url{https://github.com/google-deepmind/formal-conjectures},
+accessed September 13, 2026.
+
+\bibitem{SV}
+K. J. Swanepoel and P. Valtr,
+\emph{The unit distance problem on spheres},
+in \emph{Towards a Theory of Geometric Graphs} (J. Pach, ed.),
+Contemp. Math. \textbf{342}, Amer. Math. Soc., Providence, RI, 2004,
+273--279.
+
+\end{thebibliography}
+\end{document}

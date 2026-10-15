@@ -1,0 +1,11 @@
+run = "npm start"
+entrypoint = "dist/index.html"
+modules = ["nodejs-22"]
+
+[env]
+HOST = "0.0.0.0"
+PORT = "4173"
+
+[[ports]]
+localPort = 4173
+externalPort = 80
