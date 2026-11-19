@@ -1,4 +1,4 @@
-import { fitEdgeRoute } from './edge-route.js?v=crossing-ribbons';
+import { initSectionRails } from './edge-route.js?v=drafting-lines';
 import {initMath} from './math.js?v=engineering';
 import {games,articles} from './content.js';
 import {initWork} from './work.js?v=merged-hexagon';
@@ -62,19 +62,7 @@ document.querySelectorAll('main > section h2[id]').forEach(heading => {
   headingObserver.observe(heading.closest('.section-heading') ?? heading);
 });
 
-if ('ResizeObserver' in window) {
-  const frameObserver = new ResizeObserver(entries => {
-    for (const { target } of entries) {
-      const feature = target.querySelector('.thread-focus').getBoundingClientRect();
-      const sectionBounds = target.getBoundingClientRect();
-      const sectionTop = sectionBounds.top + target.clientTop;
-      target.style.setProperty('--thread-feature-top', Math.round(feature.top - sectionTop) + 'px');
-      target.style.setProperty('--thread-feature-bottom', Math.round(feature.bottom - sectionTop) + 'px');
-      if (target.classList.contains('edge-route')) fitEdgeRoute(target, sectionBounds, feature);
-    }
-  });
-  document.querySelectorAll('.thread-focus').forEach(feature => frameObserver.observe(feature.closest('.thread-section')));
-}
+initSectionRails();
 
 const list = document.querySelector('#game-list');
 for (const game of games.filter(game => game.id !== 'sundrift')) {
