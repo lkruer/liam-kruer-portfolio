@@ -308,6 +308,8 @@ h3 { font-size: 1.3rem; }
 }
 
 @media (min-width: 921px) {
+  #math .section-heading { margin-bottom: clamp(3.75rem, 5.1vw, 4.75rem); }
+  #games > .section { padding-block-end: clamp(6.5rem, 9.5vw, 8.5rem); }
   .edge-route[data-edge-route]::before { clip-path: var(--route-lead); }
   .edge-route[data-edge-route]::after { clip-path: var(--route-follow); }
 }

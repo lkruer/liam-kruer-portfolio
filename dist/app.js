@@ -1,4 +1,4 @@
-import { fitEdgeRoute } from './edge-route.js';
+import { fitEdgeRoute } from './edge-route.js?v=crossing-ribbons';
 import {initMath} from './math.js?v=engineering';
 import {games,articles} from './content.js';
 import {initWork} from './work.js?v=merged-hexagon';
