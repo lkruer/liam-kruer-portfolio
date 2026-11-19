@@ -11,6 +11,7 @@ function initPaperSearch() {
   const groups = [...document.querySelectorAll('.research-group')].map(group => ({
     group,
     count: group.querySelector('[data-group-count]'),
+    sections: group.querySelectorAll('[data-paper-section]'),
     rows: [...group.querySelectorAll('.paper-row')].map(row => ({
       row,
       text: normalize(row.querySelector('h3').textContent + ' ' + row.dataset.paperSearch),
@@ -27,12 +28,15 @@ function initPaperSearch() {
     }
 
     let matches = 0;
-    groups.forEach(({ group, count, rows }, index) => {
+    groups.forEach(({ group, count, rows, sections }, index) => {
       let groupMatches = 0;
       rows.forEach(({ row, text }) => {
         row.hidden = !words.every(word => text.includes(word));
         if (!row.hidden) groupMatches += 1;
       });
+      for (const section of sections) {
+        section.hidden = !section.querySelector('.paper-row:not([hidden])');
+      }
       group.hidden = searching && groupMatches === 0;
       if (searching) group.open = groupMatches > 0;
       else if (openedBeforeSearch) group.open = openedBeforeSearch[index];
@@ -46,8 +50,11 @@ function initPaperSearch() {
   }
 
   function openLinkedGroup() {
-    const entry = groups.find(({ group }) => location.hash === '#' + group.id);
-    if (entry && !entry.group.hidden) entry.group.open = true;
+    const target = document.getElementById(location.hash.slice(1));
+    const group = target?.closest('.research-group');
+    if (!group || group.hidden || group.open) return;
+    group.open = true;
+    if (target !== group) target.scrollIntoView({ block: 'start' });
   }
 
   search.addEventListener('input', filterPapers);

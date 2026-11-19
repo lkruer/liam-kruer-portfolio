@@ -18,9 +18,9 @@
   <link rel="icon" href="assets/brand/lk-racing-red.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/brand/lk-racing-red-180.png" sizes="180x180">
   <link rel="stylesheet" href="assets/reading-fonts.css">
-  <link rel="stylesheet" href="portfolio.css?v=section-flow">
+  <link rel="stylesheet" href="portfolio.css?v=racing-stripes">
   <title>Liam Kruer</title>
-  <script type="module" src="app.js?v=section-flow"></script>
+  <script type="module" src="app.js?v=racing-stripes"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,6 +57,7 @@
     </section>
 
     <section id="engineering" aria-labelledby="engineering-title">
+      <div class="hero-trail" aria-hidden="true"></div>
       <div class="wrap section">
         <div class="section-heading">
           <h2 id="engineering-title">Engineering</h2>
@@ -96,9 +97,11 @@
           </label>
           <p class="archive-status" id="archive-results" role="status">36 papers</p>
         </div>
-        <details class="research-group" id="hexagon" open>
-          <summary>Hexagon submissions <span class="group-count" data-group-count>6 papers</span></summary>
-          <ul class="paper-list">
+        <details class="research-group" id="hexagon">
+          <summary>Hexagon research <span class="group-count" data-group-count>24 papers</span></summary>
+          <div class="paper-section" data-paper-section>
+            <h3>Submissions</h3>
+            <ul class="paper-list">
             <!-- HEXAGON SUBMISSIONS START -->
             <li class="paper-row" data-paper-search="Logic Nov 18, 2026 5 pages A set theory preprint on whether certain edge colorings must exist for graphs with uncountable chromatic number. Will Howe, Grant Huffman, Jensen Kohlmeyer, Liam Kruer Hexagon 2611.00585v1 2611.00585v1">
               <div class="paper-row-info">
@@ -167,11 +170,11 @@
               </div>
             </li>
             <!-- HEXAGON SUBMISSIONS END -->
-          </ul>
-        </details>
-        <details class="research-group" id="hexagon-contributions">
-          <summary>Other Hexagon contributions <span class="group-count" data-group-count>18 papers</span></summary>
-          <ul class="paper-list">
+            </ul>
+          </div>
+          <div class="paper-section" data-paper-section>
+            <h3 id="hexagon-contributions">Other contributions</h3>
+            <ul class="paper-list">
             <!-- HEXAGON CONTRIBUTIONS START -->
             <li class="paper-row" data-paper-search="Combinatorics Nov 16, 2026 12 pages Will Howe, Grant Huffman, Jensen Kohlmeyer, Liam Kruer 2611.00319v1">
               <div class="paper-row-info">
@@ -354,7 +357,18 @@
               </div>
             </li>
             <!-- HEXAGON CONTRIBUTIONS END -->
-          </ul>
+            </ul>
+          </div>
+          <div class="research-provenance">
+            <h3>Credits, provenance, and licensing</h3>
+            <p>Hexagon credits Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer on all 24 works and lists them as primarily AI-generated. The six submissions declare that no part was checked and understood by a human. The original records give the provenance for each preprint.</p>
+            <p>The files are shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. See the <a href="assets/work/hexagon/LICENSES.md">attribution list</a> for every version.</p>
+            <div class="hexagon-links">
+              <a href="https://hexagonmath.org/users/user_bb599767-1abb-4b78-9baf-bc8da1bb43d3">My Hexagon submissions</a>
+              <a href="https://hexagonmath.org/search?author=Liam+Kruer">Contributor search</a>
+              <a href="https://orcid.org/0009-0005-8708-1804">ORCID</a>
+            </div>
+          </div>
         </details>
         <details class="research-group" id="working-manuscripts">
           <summary>Working manuscripts and formalizations <span class="group-count" data-group-count>12 papers</span></summary>
@@ -500,21 +514,12 @@
           <p>No papers match this search.</p>
           <button class="button secondary" type="button" id="reset-papers">Clear search</button>
         </div>
-        <details class="research-provenance">
-          <summary>Hexagon credits, provenance, and licensing</summary>
-          <p>Hexagon credits Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer on all 24 works and lists them as primarily AI-generated. The six submissions declare that no part was checked and understood by a human. The original records give the provenance for each preprint.</p>
-          <p>The files are shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. See the <a href="assets/work/hexagon/LICENSES.md">attribution list</a> for every version.</p>
-          <div class="hexagon-links">
-            <a href="https://hexagonmath.org/users/user_bb599767-1abb-4b78-9baf-bc8da1bb43d3">My Hexagon submissions</a>
-            <a href="https://hexagonmath.org/search?author=Liam+Kruer">Contributor search</a>
-            <a href="https://orcid.org/0009-0005-8708-1804">ORCID</a>
-          </div>
-        </details>
       </div>
       <div class="math-lab"><div class="lab-copy"><h3>The 3n + 1 problem</h3><p>Pick a positive integer. If it’s even, halve it. If it’s odd, multiply by three and add one. Keep going.</p><p class="lab-question">Does every starting number reach 1?<br> That’s still an open question.</p><form id="collatz-form"><label for="collatz-seed">Starting number</label><div class="number-entry"><input id="collatz-seed" name="seed" type="number" min="1" max="999999" step="1" value="27" required inputmode="numeric"><button type="submit">Plot sequence</button></div><p class="input-error" id="collatz-error" aria-live="polite"></p></form><div class="seed-presets" aria-label="Try a starting number"><span>TRY</span><button type="button" data-seed="7">7</button><button type="button" data-seed="27" class="selected" aria-pressed="true">27</button><button type="button" data-seed="97">97</button><button type="button" data-seed="871">871</button></div></div><div class="lab-plot"><div class="plot-header"><span>Collatz sequence</span><span id="sequence-label">n₀ = 27</span></div><canvas id="collatz-canvas" role="img" aria-label="Collatz sequence starting at 27: 111 steps, peaking at 9232, then reaching 1"></canvas><div class="plot-stats" aria-live="polite"><div><strong id="step-stat">111</strong><span>Steps to 1</span></div><div><strong id="peak-stat">9,232</strong><span>Highest value</span></div><div><strong id="end-stat">1</strong><span>Final value</span></div></div><p class="plot-note">The vertical axis uses a logarithmic scale.</p></div></div>
     </section>
 
     <section class="band" id="games" aria-labelledby="games-title">
+      <div class="section-trail" aria-hidden="true"></div>
       <div class="wrap section">
         <div class="section-heading"><h2 id="games-title">Games</h2></div>
         <article class="game-feature">
@@ -547,6 +552,7 @@
     </section>
 
     <section class="band" id="video" aria-labelledby="video-title">
+      <div class="section-trail" aria-hidden="true"></div>
       <div class="wrap section">
         <div class="section-heading heading-with-link">
           <div><h2 id="video-title">Videos</h2><p>Mathematics, automotive design, and vehicle physics.</p></div>
@@ -596,6 +602,7 @@
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-trail" aria-hidden="true"></div>
       <div class="wrap contact-layout">
         <h2 id="contact-title">Contact</h2>
         <div class="actions">
