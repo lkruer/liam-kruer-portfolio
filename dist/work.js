@@ -32,8 +32,6 @@ export function initWork(){
     document.querySelector('#archive-results').textContent=visible===cards.length?'Showing all '+visible+' papers':'Showing '+visible+' of '+cards.length+' papers';
     document.querySelector('#archive-empty').hidden=visible!==0;
     filters.forEach(button=>{const selected=button.dataset.paperFilter===activeFilter;button.classList.toggle('selected',selected);button.setAttribute('aria-pressed',String(selected));});
-    const grid=document.querySelector('#paper-grid'),toolbar=document.querySelector('.archive-toolbar'),header=document.querySelector('.site-header');
-    if(grid.getBoundingClientRect().top<toolbar.getBoundingClientRect().bottom){window.scrollTo({top:window.scrollY+grid.getBoundingClientRect().top-header.offsetHeight-toolbar.offsetHeight-20,behavior:'instant'});}
   }
   filters.forEach(button=>button.addEventListener('click',()=>{activeFilter=button.dataset.paperFilter;filterPapers();}));
   search.addEventListener('input',filterPapers);
@@ -44,8 +42,8 @@ export function initWork(){
     document.querySelector('#paper-status').textContent=current.problem+' / '+current.status;
     const note=paperNotes[current.id];
     document.querySelector('#paper-subtitle').textContent=(note.credit||'With Jensen Kohlmeyer')+' · '+note.topic;
-    const downloads=document.querySelector('#paper-downloads');downloads.replaceChildren(download('PDF ↓',current.pdf),download('Source bundle ↓',current.bundle));
-    current.lean.forEach((file,i)=>downloads.append(download(current.lean.length>1?'Lean '+(i+1)+' ↓':'Lean ↓',file,file.split('/').at(-1))));
+    const downloads=document.querySelector('#paper-downloads');downloads.replaceChildren(download('PDF',current.pdf),download('Source bundle',current.bundle));
+    current.lean.forEach((file,i)=>downloads.append(download(current.lean.length>1?'Lean '+(i+1)+'':'Lean',file,file.split('/').at(-1))));
     nav.querySelectorAll('button').forEach(b=>{const selected=b.dataset.paperId===current.id;b.classList.toggle('selected',selected);b.setAttribute('aria-current',String(selected));});
     document.querySelector('#page-zoom').setAttribute('aria-pressed','false');document.querySelector('#page-zoom').textContent='Zoom in +';stage.classList.remove('zoomed');
     drawPage();
@@ -76,8 +74,8 @@ export function initWork(){
     const iframe=document.createElement('iframe');iframe.title=title;iframe.src=url;iframe.allow='autoplay; fullscreen; gamepad';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';
     mediaStage.replaceChildren(iframe);showModal(media);
   }
-  document.querySelectorAll('[data-play]').forEach(button=>button.addEventListener('click',()=>{const game=games.find(g=>g.id===button.dataset.play);if(game)openMedia(game.title,'PLAY ON SITE',game.playUrl,'WASD or arrow keys to drive · Space to drift · Use the game’s pause menu, or the × above to close.','game');}));
-  document.querySelectorAll('[data-video]').forEach(button=>button.addEventListener('click',()=>openMedia(button.dataset.title,'WATCH ON SITE','https://www.youtube-nocookie.com/embed/'+encodeURIComponent(button.dataset.video)+'?rel=0','Video playback is provided by YouTube.','video')));
+  document.querySelectorAll('[data-play]').forEach(button=>button.addEventListener('click',()=>{const game=games.find(g=>g.id===button.dataset.play);if(game)openMedia(game.title,'Browser game',game.playUrl,'WASD or arrow keys to drive · Space to drift · Use the game’s pause menu, or the × above to close.','game');}));
+  document.querySelectorAll('[data-video]').forEach(button=>button.addEventListener('click',()=>openMedia(button.dataset.title,'Video','https://www.youtube-nocookie.com/embed/'+encodeURIComponent(button.dataset.video)+'?rel=0','Video playback is provided by YouTube.','video')));
   media.addEventListener('close',()=>mediaStage.replaceChildren());
   document.querySelector('#media-fullscreen').addEventListener('click',async()=>{try{await mediaStage.requestFullscreen();}catch{document.querySelector('#media-help').textContent='Full screen is unavailable in this browser. The player still works here.';}});
 }

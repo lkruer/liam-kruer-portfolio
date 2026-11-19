@@ -4,7 +4,7 @@ A self-contained static portfolio. It needs no build step, application dependenc
 
 [Visit the portfolio](https://liamkruer.com/)
 
-![Portfolio preview](dist/assets/social-preview-logo.jpg)
+![Portfolio preview](dist/assets/social-preview-engineering.jpg)
 
 ## Preview
 
@@ -26,21 +26,18 @@ The complete website is in `dist/`, including the game, paper previews, PDFs, do
 
 ## Make it yours
 
-- **Add games:** append an entry with `id`, `title`, `subtitle`, `year`, `platform`, and `playUrl` to the `games` array in `dist/content.js`. The Games shelf and game count update automatically. The game opens in the on-site player; `playUrl` can point to a folder hosted with the portfolio. Sundrift has a separate featured presentation in `dist/index.html`.
+- **Add games:** append an entry with `id`, `title`, `subtitle`, `year`, `platform`, and `playUrl` to the `games` array in `dist/content.js`. Additional games appear in the Games section. The game opens in the on-site player; `playUrl` can point to a folder hosted with the portfolio. Sundrift has a separate featured presentation in `dist/index.html`.
 - **Edit build notes:** update `articles` in `dist/content.js`. The dialog system handles presentation and keyboard dismissal.
 - **Edit biography, videos, or links:** update `dist/index.html`.
-- **Personal logo:** `dist/assets/brand/liam-kruer-mark.svg` is the shared, outlined `lk.` monogram used in the header, footer, and About orbit. The cream mark (`#e7efdf`) stays transparent and needs no installed font. Keep its square canvas and aspect ratio intact. Browser and Apple icons use the same mark on an ink background.
+- **Personal logo:** `dist/assets/brand/lk-racing-red.svg` is the cream `lk.` monogram on racing red. The same colors appear in the mobile home-screen icon and the social preview.
 - **Edit paper cards:** original file paths and page counts live in `dist/research-catalog.js`; short summaries and topics live in `dist/paper-notes.js`. Run `npm run render:papers` after updating either. This writes each card into the HTML, so visitors can browse the full collection without opening the reader or waiting for JavaScript to render the cards.
-- **Change colors, spacing, or breakpoints:** the base is in `dist/styles.css`, the neon palette and wireframes are in `dist/neon.css`, reader styles are in `dist/work.css`, and the editorial layout and paper cards are in `dist/fieldnotes.css`.
-- **Reading typography:** Inter handles body copy, IBM Plex Mono handles technical labels, and Space Grotesk with serif accents handles display type. Paper summaries use 17px text; download controls have 52–55px minimum heights. The reading-scale rules at the end of `dist/fieldnotes.css` keep mobile text large and stack paper actions when needed.
-- **Navigation and layout:** the narrow-screen menu includes Connect, and paper filters stay visible within the archive. Image aspect ratios reserve their space before loading, so section links do not shift as previews arrive. The featured Sundrift project is not repeated in the game shelf; future games appear there automatically.
-- **Readers and media:** papers use a single main scroll area with sticky page controls; zoom enables panning. Videos preserve a 16:9 frame and use a compact viewing dialog; games retain a larger interactive player. Only one dialog is open at a time, including when using the keyboard jump menu.
-- **Hero sculpture:** `dist/sculpture-webgl.js` generates a thin twisted ribbon with broad faces, a rounded edge, smooth normals, and procedural reflections. Lighting and rotation respond to the pointer; dragging rotates the form. Three ribbon variations and a wireframe toggle are included. Motion pauses offscreen and behind dialogs, respects reduced-motion preferences, and falls back to the 2D renderer in `dist/sculpture.js` if WebGL is unavailable.
+- **Change colors, spacing, or breakpoints:** update `dist/portfolio.css`. The palette is defined in the variables at the top and the typography uses the self-hosted Inter font.
+- **Navigation and layout:** Engineering, Research, and Games each have their own section. The main navigation collapses into a menu on narrow screens.
+- **Readers and media:** papers use a single main scroll area with sticky page controls; zoom enables panning. Videos preserve a 16:9 frame and use a compact viewing dialog; games retain a larger interactive player. Close the reader and note dialogs with Escape.
 - **Research collection:** all 12 papers have a large, upright preview of the entire first page, short summary, topic, draft status, coauthor credit, and direct PDF/source downloads. Preview frames fit each document without cropping. Search and Erdős/Green filters narrow the collection. The reader has 109 local page previews, page text, zoom, pagination, and available Lean downloads. `dist/work.js` handles filters, reading, and media playback; originals live in `dist/assets/work/`.
 - **Sundrift:** the original browser-game files are hosted in `dist/games/sundrift/` and are loaded only when the player opens. The source ZIP includes the game and its original development notes.
 - **Math demo:** `dist/math.js` uses exact BigInt steps. It accepts whole numbers from 1 to 999,999 and has a 3,000-step cap.
 
-The keyboard jump menu opens with Ctrl+K (Command+K on a Mac); it supports searching, Enter, arrow keys, and Escape. Build-note dialogs also close with Escape.
 
 ## Content and assets
 

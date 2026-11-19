@@ -30,26 +30,26 @@ export function initMath() {
     for (let power = 0; power <= Math.ceil(logMax); power++) {
       const value = Math.pow(10, power), yy = y(value);
       if (yy < top - 1) continue;
-      ctx.strokeStyle = 'rgba(42,161,225,.14)'; ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(109,74,83,.14)'; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(left, yy); ctx.lineTo(right, yy); ctx.stroke();
-      ctx.fillStyle = '#a1bdd1'; ctx.textAlign = 'right';
+      ctx.fillStyle = '#5b5053'; ctx.textAlign = 'right';
       const tick = value >= 1000000 ? value / 1000000 + 'm' : value >= 1000 ? value / 1000 + 'k' : String(value);
       ctx.fillText(tick, left - 9, yy);
     }
     const points = values.map((v, i) => [x(i), y(v)]);
     const area = ctx.createLinearGradient(0, top, 0, bottom);
-    area.addColorStop(0, 'rgba(29,221,255,.20)'); area.addColorStop(1, 'rgba(29,221,255,0)');
+    area.addColorStop(0, 'rgba(169,20,51,.20)'); area.addColorStop(1, 'rgba(169,20,51,0)');
     ctx.beginPath(); ctx.moveTo(left, bottom); for (const p of points) ctx.lineTo(...p);
     ctx.lineTo(points.at(-1)[0], bottom); ctx.closePath(); ctx.fillStyle = area; ctx.fill();
     ctx.beginPath(); points.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p));
-    ctx.strokeStyle = '#28e4ff'; ctx.lineWidth = 1.7; ctx.lineJoin = 'round'; ctx.stroke();
-    ctx.fillStyle = '#28e4ff'; ctx.beginPath(); ctx.arc(...points.at(-1), 3, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#a1bdd1'; ctx.textAlign = 'left'; ctx.fillText('0', left, height - 8);
+    ctx.strokeStyle = '#a91433'; ctx.lineWidth = 1.7; ctx.lineJoin = 'round'; ctx.stroke();
+    ctx.fillStyle = '#a91433'; ctx.beginPath(); ctx.arc(...points.at(-1), 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#5b5053'; ctx.textAlign = 'left'; ctx.fillText('0', left, height - 8);
     ctx.textAlign = 'right'; ctx.fillText((values.length - 1) + ' steps', right, height - 8);
     if (hover >= 0) {
-      const point = points[hover]; ctx.strokeStyle = '#28e4ff80'; ctx.setLineDash([3, 4]);
+      const point = points[hover]; ctx.strokeStyle = '#a9143380'; ctx.setLineDash([3, 4]);
       ctx.beginPath(); ctx.moveTo(point[0], top); ctx.lineTo(point[0], bottom); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = '#fff0ff'; ctx.beginPath(); ctx.arc(...point, 4, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#93122d'; ctx.beginPath(); ctx.arc(...point, 4, 0, Math.PI * 2); ctx.fill();
       label.textContent = 'STEP ' + hover + ' · n = ' + values[hover].toLocaleString();
     }
   }
