@@ -14,25 +14,12 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();
 const chapters = [...document.querySelectorAll('main > section[id]')];
 const navLinks = new Map([...menu.querySelectorAll('a')].map(link => [link.hash, link]));
 const header = document.querySelector('.site-header');
-const heroTrail = document.querySelector('.hero-trail');
-const motionPreference = matchMedia('(prefers-reduced-motion: no-preference)');
-let trailExtension;
 let activeLink;
 let updateQueued = false;
 
 function updateScrollState() {
   updateQueued = false;
   const page = document.documentElement;
-  if (motionPreference.matches) {
-    const height = page.clientHeight;
-    const top = heroTrail.getBoundingClientRect().top;
-    const progress = Math.min(1, Math.max(0, (height * .78 - top) / (height * .6)));
-    const extension = (.65 + .35 * progress).toFixed(3);
-    if (extension !== trailExtension) {
-      heroTrail.style.setProperty('--trail-extension', extension);
-      trailExtension = extension;
-    }
-  }
   const atBottom = scrollY > 0 && Math.ceil(scrollY + page.clientHeight) >= page.scrollHeight - 2;
   const readingLine = header.offsetHeight + Math.min(160, page.clientHeight * .16);
   let current = chapters[0];
@@ -61,7 +48,6 @@ function queueScrollUpdate() {
 
 addEventListener('scroll', queueScrollUpdate, { passive: true });
 addEventListener('resize', queueScrollUpdate);
-motionPreference.addEventListener('change', queueScrollUpdate);
 updateScrollState();
 
 const headingObserver = new IntersectionObserver(entries => {
@@ -74,7 +60,6 @@ const headingObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('main > section h2[id]').forEach(heading => {
   headingObserver.observe(heading.closest('.section-heading') ?? heading);
 });
-document.querySelectorAll('.section-trail').forEach(trail => headingObserver.observe(trail));
 
 const list = document.querySelector('#game-list');
 for (const game of games.filter(game => game.id !== 'sundrift')) {

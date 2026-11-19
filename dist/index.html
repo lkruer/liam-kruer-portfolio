@@ -18,9 +18,9 @@
   <link rel="icon" href="assets/brand/lk-racing-red.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/brand/lk-racing-red-180.png" sizes="180x180">
   <link rel="stylesheet" href="assets/reading-fonts.css">
-  <link rel="stylesheet" href="portfolio.css?v=racing-stripes">
+  <link rel="stylesheet" href="portfolio.css?v=continuous-stripes">
   <title>Liam Kruer</title>
-  <script type="module" src="app.js?v=racing-stripes"></script>
+  <script type="module" src="app.js?v=continuous-stripes"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,7 +57,7 @@
     </section>
 
     <section id="engineering" aria-labelledby="engineering-title">
-      <div class="hero-trail" aria-hidden="true"></div>
+      <div class="stripe-taper" aria-hidden="true"><span></span></div>
       <div class="wrap section">
         <div class="section-heading">
           <h2 id="engineering-title">Engineering</h2>
@@ -84,7 +84,8 @@
       </div>
     </section>
 
-    <section class="wrap section" id="math" aria-labelledby="math-title">
+    <section id="math" aria-labelledby="math-title">
+      <div class="wrap section">
       <div class="section-heading">
         <h2 id="math-title">Mathematics research</h2>
         <p>Preprints I’ve contributed to on Hexagon, plus working manuscripts and Lean 4 formalizations.</p>
@@ -516,10 +517,10 @@
         </div>
       </div>
       <div class="math-lab"><div class="lab-copy"><h3>The 3n + 1 problem</h3><p>Pick a positive integer. If it’s even, halve it. If it’s odd, multiply by three and add one. Keep going.</p><p class="lab-question">Does every starting number reach 1?<br> That’s still an open question.</p><form id="collatz-form"><label for="collatz-seed">Starting number</label><div class="number-entry"><input id="collatz-seed" name="seed" type="number" min="1" max="999999" step="1" value="27" required inputmode="numeric"><button type="submit">Plot sequence</button></div><p class="input-error" id="collatz-error" aria-live="polite"></p></form><div class="seed-presets" aria-label="Try a starting number"><span>TRY</span><button type="button" data-seed="7">7</button><button type="button" data-seed="27" class="selected" aria-pressed="true">27</button><button type="button" data-seed="97">97</button><button type="button" data-seed="871">871</button></div></div><div class="lab-plot"><div class="plot-header"><span>Collatz sequence</span><span id="sequence-label">n₀ = 27</span></div><canvas id="collatz-canvas" role="img" aria-label="Collatz sequence starting at 27: 111 steps, peaking at 9232, then reaching 1"></canvas><div class="plot-stats" aria-live="polite"><div><strong id="step-stat">111</strong><span>Steps to 1</span></div><div><strong id="peak-stat">9,232</strong><span>Highest value</span></div><div><strong id="end-stat">1</strong><span>Final value</span></div></div><p class="plot-note">The vertical axis uses a logarithmic scale.</p></div></div>
+      </div>
     </section>
 
     <section class="band" id="games" aria-labelledby="games-title">
-      <div class="section-trail" aria-hidden="true"></div>
       <div class="wrap section">
         <div class="section-heading"><h2 id="games-title">Games</h2></div>
         <article class="game-feature">
@@ -552,7 +553,6 @@
     </section>
 
     <section class="band" id="video" aria-labelledby="video-title">
-      <div class="section-trail" aria-hidden="true"></div>
       <div class="wrap section">
         <div class="section-heading heading-with-link">
           <div><h2 id="video-title">Videos</h2><p>Mathematics, automotive design, and vehicle physics.</p></div>
@@ -602,7 +602,6 @@
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="section-trail" aria-hidden="true"></div>
       <div class="wrap contact-layout">
         <h2 id="contact-title">Contact</h2>
         <div class="actions">

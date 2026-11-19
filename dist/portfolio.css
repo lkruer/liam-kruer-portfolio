@@ -82,22 +82,28 @@ h3 { font-size: 1.3rem; }
 }
 .hero-art {
   position: absolute; z-index: -1; inset: 0 0 0 51%; overflow: hidden; pointer-events: none;
-  background: var(--blush); clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%);
+  background: var(--blush);
+  clip-path: polygon(16% 0, 100% 0, 100% 100%, calc(100% - var(--stripe-start-blush)) 100%,
+    calc(100% - var(--stripe-start-blush) - 13%) 90%, calc(100% - var(--stripe-start-blush) - 31%) 81%,
+    20% 70%, 13% 59%, 10% 46%, 10% 32%);
 }
 .hero-art::before, .hero-art::after {
   content: ""; position: absolute; inset: 0;
 }
 .hero-art::before {
   background: var(--accent);
-  clip-path: polygon(41% 0, 100% 0, 100% 100%, 17% 100%);
+  clip-path: polygon(33% 0, 100% 0, 100% 100%, calc(100% - var(--stripe-start-red)) 100%,
+    calc(100% - var(--stripe-start-red) - 11%) 90%, calc(100% - var(--stripe-start-red) - 28%) 81%,
+    36% 70%, 28% 59%, 26% 46%, 26% 32%);
 }
 .hero-art::after {
   background: var(--accent-deep);
-  clip-path: polygon(90% 0, 100% 0, 100% 100%, 66% 100%);
+  clip-path: polygon(80% 0, 100% 0, 100% 100%, calc(100% - var(--stripe-start-deep)) 100%,
+    calc(100% - var(--stripe-start-deep) - 5%) 90%, 82% 80%, 74% 66%, 71% 49%, 73% 29%);
 }
 .hero-monogram {
-  position: absolute; z-index: 1; top: 50%; left: 60%;
-  width: min(73%, 29rem); height: 86%; transform: translate(-50%, -50%);
+  position: absolute; z-index: 1; top: 43%; left: 62%;
+  width: min(73%, 29rem); height: 71%; transform: translate(-50%, -50%);
   background: var(--vanilla);
   mask: url("assets/brand/liam-kruer-mark.svg") center / contain no-repeat;
 }
@@ -135,34 +141,80 @@ h3 { font-size: 1.3rem; }
 }
 .section-heading p, .about-section p:not(.meta) { color: var(--muted); max-width: 43rem; margin-top: .6rem; }
 .heading-with-link { display: flex; justify-content: space-between; align-items: end; gap: 1rem; }
-#engineering + #math { border-top: 1px solid var(--line); }
-#engineering, .band, .contact-section { position: relative; }
-.hero-trail {
-  position: absolute; inset: -1px 0 auto 51%;
-  height: clamp(3.5rem, 8vw, 7rem); pointer-events: none;
-  background: url("assets/hero-racing-trail.webp") center top / 100% 100% no-repeat;
-  transform: scaleY(.65); transform-origin: top;
+/* Shared widths keep the hero, taper, and section edges aligned. */
+#main {
+  --stripe-start-blush: clamp(3.65rem, 12vw, 11rem);
+  --stripe-start-red: clamp(2.65rem, 8vw, 7rem);
+  --stripe-start-deep: clamp(1.1rem, 3vw, 2.5rem);
+  --stripe-end-blush: .875rem;
+  --stripe-end-red: .52rem;
+  --stripe-end-deep: .2rem;
+  --stripe-muted-blush: #ecd3c9;
+  --stripe-muted-red: #ce939d;
+  --stripe-muted-deep: #ac6474;
 }
-.section-trail {
-  position: absolute; inset: 0 0 auto auto; width: min(21vw, 17rem); height: 3rem;
-  overflow: hidden; pointer-events: none;
+#math > .wrap { border-block-start: 1px solid var(--line); }
+#engineering, #math, #games { position: relative; }
+.stripe-taper, .stripe-taper span, .stripe-taper::after {
+  position: absolute; inset: 0 0 0 auto; width: var(--stripe-start);
+  background: linear-gradient(var(--stripe-color), var(--stripe-muted) 54%);
+  pointer-events: none;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - var(--stripe-end)) 100%,
+    calc((100% - var(--stripe-end)) * .98) 70%, calc((100% - var(--stripe-end)) * .91) 49%,
+    calc((100% - var(--stripe-end)) * .74) 32%, calc((100% - var(--stripe-end)) * .49) 18%,
+    calc((100% - var(--stripe-end)) * .23) 8%);
 }
-.section-trail::before, .section-trail::after {
-  content: ""; position: absolute; left: 12%; width: 100%; height: 3rem;
-  border: solid var(--blush); border-width: 3px 0 0 3px; border-start-start-radius: 55% 95%;
+.stripe-taper {
+  --stripe-start: var(--stripe-start-blush);
+  --stripe-end: var(--stripe-end-blush);
+  --stripe-color: var(--blush);
+  --stripe-muted: var(--stripe-muted-blush);
+  inset-block-start: -1px;
 }
-.section-trail::before { top: .55rem; }
-.section-trail::after { top: .95rem; left: 23%; border-color: var(--accent); border-width: 1px 0 0 1px; }
-@media (prefers-reduced-motion: no-preference) {
-  .hero-trail { transform: scaleY(var(--trail-extension, .65)); }
-  .section-trail.section-arrival { animation: none; }
-  .section-trail.section-arrival::before, .section-trail.section-arrival::after {
-    animation: section-trail-arrival .85s cubic-bezier(.2, .7, .25, 1) both;
+.stripe-taper span {
+  --stripe-start: var(--stripe-start-red);
+  --stripe-end: var(--stripe-end-red);
+  --stripe-color: var(--accent);
+  --stripe-muted: var(--stripe-muted-red);
+}
+.stripe-taper::after {
+  content: "";
+  --stripe-start: var(--stripe-start-deep);
+  --stripe-end: var(--stripe-end-deep);
+  --stripe-color: var(--accent-deep);
+  --stripe-muted: var(--stripe-muted-deep);
+}
+#math::after, #games::after {
+  content: ""; position: absolute; inset: -1px 0 0 auto; width: var(--stripe-end-blush); pointer-events: none;
+  background: linear-gradient(to left, var(--stripe-muted-deep) 0 var(--stripe-end-deep),
+    var(--stripe-muted-red) var(--stripe-end-deep) var(--stripe-end-red),
+    var(--stripe-muted-blush) var(--stripe-end-red) 100%);
+}
+#games::after { mask-image: linear-gradient(#000 calc(100% - 5rem), transparent); }
+@supports (clip-path: shape(from 0 0, line to 100% 100%, close)) {
+  .hero-art {
+    clip-path: shape(from 16% 0, line to 100% 0, line to 100% 100%,
+      line to calc(100% - var(--stripe-start-blush)) 100%,
+      curve to 10% 46% with calc(100% - var(--stripe-start-blush) - 10%) 84% / 10% 83%,
+      curve to 16% 0 with 10% 26% / 12% 8%, close);
   }
-}
-@keyframes section-trail-arrival {
-  from { transform: translateX(24px); opacity: .32; }
-  to { transform: translateX(0); opacity: 1; }
+  .hero-art::before {
+    clip-path: shape(from 33% 0, line to 100% 0, line to 100% 100%,
+      line to calc(100% - var(--stripe-start-red)) 100%,
+      curve to 26% 46% with calc(100% - var(--stripe-start-red) - 7%) 84% / 26% 83%,
+      curve to 33% 0 with 26% 26% / 29% 8%, close);
+  }
+  .hero-art::after {
+    clip-path: shape(from 80% 0, line to 100% 0, line to 100% 100%,
+      line to calc(100% - var(--stripe-start-deep)) 100%,
+      curve to 71% 46% with calc(100% - var(--stripe-start-deep) - 2.5%) 84% / 71% 83%,
+      curve to 80% 0 with 71% 26% / 75% 8%, close);
+  }
+  .stripe-taper, .stripe-taper span, .stripe-taper::after {
+    clip-path: shape(from 0 0, line to 100% 0, line to 100% 100%,
+      line to calc(100% - var(--stripe-end)) 100%,
+      curve to 0 0 with calc(100% - var(--stripe-end)) 48% / 49% 18%, close);
+  }
 }
 #engineering > .section { padding-block-start: clamp(2.7rem, 4vw, 3.75rem); }
 #engineering .section-heading p { max-width: 35rem; }
@@ -402,9 +454,16 @@ button.dialog-close, button.viewer-close { background: var(--band); border: 1px 
   .hero-copy { width: 100%; }
   .hero h1 { font-size: clamp(2.8rem, 12vw, 5.15rem); }
   .hero-art { position: relative; inset: auto; height: clamp(9rem, 41vw, 15rem); }
-  .hero-monogram { left: 61%; height: 96%; }
-  .hero-trail { inset-inline-start: 0; height: 2.1rem; }
-  .section-trail { width: 28vw; height: 2.35rem; }
+  #main {
+    --stripe-start-blush: clamp(1.65rem, 10vw, 3rem);
+    --stripe-start-red: clamp(1.1rem, 6.5vw, 2rem);
+    --stripe-start-deep: clamp(.45rem, 2.6vw, .8rem);
+    --stripe-end-blush: .68rem;
+    --stripe-end-red: .4rem;
+    --stripe-end-deep: .15rem;
+  }
+  .hero-monogram { top: 40%; left: 62%; height: 80%; }
+  #engineering > .section { padding-inline-end: .85rem; }
   .engineering-layout { grid-template-columns: minmax(0, 1fr); }
   .game-copy { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
   .game-details { padding: 1rem 0 0; border-inline-start: 0; border-block-start: 1px solid var(--line); }
