@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/brand/lk-racing-red.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/brand/lk-racing-red-180.png" sizes="180x180">
   <link rel="stylesheet" href="assets/reading-fonts.css">
-  <link rel="stylesheet" href="portfolio.css?v=compact">
+  <link rel="stylesheet" href="portfolio.css?v=field-notes">
   <title>Liam Kruer</title>
   <script type="module" src="app.js?v=compact"></script>
 </head>
@@ -49,26 +49,37 @@
           <p class="hero-description">I build interactive software, study mathematics, and document how my projects work.</p>
           <div class="actions">
             <a class="button primary" href="#engineering">Explore engineering</a>
-            <a class="button secondary" href="#math">Browse research</a>
+            <a class="hero-research-link" href="#math">Browse research</a>
           </div>
         </div>
-        <aside class="hero-index" aria-label="Work at a glance">
-          <p class="eyebrow">Work at a glance</p>
-          <dl>
-            <div><dt>CAD</dt><dd><a href="#certifications">SOLIDWORKS CSWA &amp; CSWP</a></dd></div>
-            <div><dt>Research</dt><dd><a href="#math">Mathematics &amp; Lean 4</a></dd></div>
-            <div><dt>Software</dt><dd><a href="#games">Simulation &amp; procedural worlds</a></dd></div>
-          </dl>
-        </aside>
+        <figure class="hero-figure">
+          <div class="packing-plate">
+            <img src="assets/circle-packing-study.webp" width="1240" height="812" alt="Nineteen equal circles on a triangular lattice inside one circular boundary. The enclosing diameter is ten times the radius of a small circle.">
+            <img class="packing-lattice" src="assets/circle-packing-lattice.png" width="1240" height="812" alt="">
+          </div>
+          <figcaption>
+            <span>Circle packing</span>
+            <label class="packing-toggle"><input type="checkbox"> Show lattice</label>
+            <a href="#circle-packing-video">Go to video</a>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
     <section id="engineering" aria-labelledby="engineering-title">
       <div class="wrap section">
-        <div class="section-heading engineering-intro">
+        <div class="section-heading">
+          <h2 id="engineering-title">Engineering</h2>
+          <p>I study engineering at Purdue University. My project work includes procedural modeling, vehicle simulation, and testing keyboard and touch controls.</p>
+        </div>
+        <div class="engineering-layout">
           <div>
-            <h2 id="engineering-title">Engineering</h2>
-            <p>I study engineering at Purdue University. My project work includes procedural modeling, vehicle simulation, and testing keyboard and touch controls.</p>
+            <h3 class="build-notes-heading">Build notes</h3>
+            <ul class="build-log">
+              <li><button type="button" class="build-entry" data-article="world"><span><strong>Procedural environments</strong><span>How roads, terrain, and scenery share the same model.</span></span><span class="build-entry-action">Read note</span></button></li>
+              <li><button type="button" class="build-entry" data-article="handling"><span><strong>Vehicle handling</strong><span>How steering, grip, and player input shape the drift model.</span></span><span class="build-entry-action">Read note</span></button></li>
+              <li><button type="button" class="build-entry" data-article="iteration"><span><strong>Testing and iteration</strong><span>What playtests, measurements, and rejected designs revealed.</span></span><span class="build-entry-action">Read note</span></button></li>
+            </ul>
           </div>
           <div class="credentials" id="certifications">
             <h3>SOLIDWORKS certifications</h3>
@@ -78,12 +89,6 @@
             </ul>
             <p class="meta">Dassault Systèmes · May 2026</p>
           </div>
-        </div>
-        <h3 class="build-notes-heading">Build notes</h3>
-        <div class="log-grid">
-          <button type="button" class="log-card" data-article="world"><h3>Procedural environments</h3><p>How roads, terrain, and scenery share the same model.</p><span>Read build note</span></button>
-          <button type="button" class="log-card" data-article="handling"><h3>Vehicle handling</h3><p>How steering, grip, and player input shape the drift model.</p><span>Read build note</span></button>
-          <button type="button" class="log-card" data-article="iteration"><h3>Testing and iteration</h3><p>What playtests, measurements, and rejected designs revealed.</p><span>Read build note</span></button>
         </div>
       </div>
     </section>
@@ -552,7 +557,7 @@
           <div><h2 id="video-title">Videos</h2><p>Mathematics, automotive design, and vehicle physics.</p></div>
           <a class="button secondary" href="https://www.youtube.com/@liamkruer/videos" target="_blank" rel="noopener noreferrer">YouTube channel</a>
         </div>
-        <button type="button" class="video-card featured-video" data-video="fnPPJNX6iOE" data-title="Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive" aria-label="Watch Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive">
+        <button type="button" class="video-card featured-video" id="circle-packing-video" data-video="fnPPJNX6iOE" data-title="Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive" aria-label="Watch Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive">
           <div class="video-image">
             <img src="assets/video-circle-packing.jpg" alt="" width="720" height="404" loading="lazy">
             <span class="video-length">13:19</span>
