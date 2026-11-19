@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fcfaf6">
+  <meta name="theme-color" content="#fbf8f2">
   <meta name="description" content="Liam Kruer — engineering projects, software, and mathematics.">
   <meta property="og:title" content="Liam Kruer">
   <meta property="og:description" content="Engineering projects, software, and mathematics.">
@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/brand/lk-racing-red.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/brand/lk-racing-red-180.png" sizes="180x180">
   <link rel="stylesheet" href="assets/reading-fonts.css">
-  <link rel="stylesheet" href="portfolio.css?v=field-notes">
+  <link rel="stylesheet" href="portfolio.css?v=racing-red">
   <title>Liam Kruer</title>
   <script type="module" src="app.js?v=compact"></script>
 </head>
@@ -45,24 +45,14 @@
     <section id="home" class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-layout">
         <div>
-          <h1 id="hero-title">Liam Kruer</h1>
+          <h1 id="hero-title">Liam <span>Kruer</span></h1>
           <p class="hero-description">I build interactive software, study mathematics, and document how my projects work.</p>
           <div class="actions">
             <a class="button primary" href="#engineering">Explore engineering</a>
             <a class="hero-research-link" href="#math">Browse research</a>
           </div>
         </div>
-        <figure class="hero-figure">
-          <div class="packing-plate">
-            <img src="assets/circle-packing-study.webp" width="1240" height="812" alt="Nineteen equal circles on a triangular lattice inside one circular boundary. The enclosing diameter is ten times the radius of a small circle.">
-            <img class="packing-lattice" src="assets/circle-packing-lattice.png" width="1240" height="812" alt="">
-          </div>
-          <figcaption>
-            <span>Circle packing</span>
-            <label class="packing-toggle"><input type="checkbox"> Show lattice</label>
-            <a href="#circle-packing-video">Go to video</a>
-          </figcaption>
-        </figure>
+        <div class="hero-mark" aria-hidden="true"><span></span></div>
       </div>
     </section>
 
@@ -526,28 +516,33 @@
 
     <section class="band" id="games" aria-labelledby="games-title">
       <div class="wrap section">
-      <div class="section-heading"><h2 id="games-title">Games</h2></div>
-      <article class="game-feature">
-        <button type="button" class="game-visual" data-play="sundrift" aria-label="Play Sundrift">
-          <img src="assets/sundrift-night-scene.jpg" alt="A sports car in Sundrift’s Neo Tokyo environment" width="1241" height="764">
-        </button>
-        <div class="game-copy">
-          <p class="eyebrow">Browser game · 2026</p>
-          <h3>Sundrift</h3>
-          <p>A driving game that pairs a drift simulation with procedural roads, terrain, and scenery. Drive through a mountain pass and a neon city, banking drifts to advance the clock toward sunrise.</p>
-          <ul class="project-details">
-            <li>Three.js rendering and procedural terrain</li>
-            <li>Keyboard and touch input</li>
-            <li>Synthesized audio</li>
-          </ul>
-          <div class="actions">
-            <button type="button" class="button primary" data-play="sundrift">Play Sundrift</button>
-            <a class="button secondary" href="assets/work/sundrift-source.zip" download>Download source</a>
+        <div class="section-heading"><h2 id="games-title">Games</h2></div>
+        <article class="game-feature">
+          <button type="button" class="game-visual" data-play="sundrift" aria-label="Play Sundrift from the preview" aria-describedby="sundrift-preview-description">
+            <img src="assets/sundrift-mountain-pass.webp" alt="" width="1536" height="800" loading="lazy">
+            <span id="sundrift-preview-description" class="sr-only">In-game screenshot of Sundrift’s white sports car on a cherry blossom-lined mountain road at dawn.</span>
+          </button>
+          <div class="game-copy">
+            <div class="game-intro">
+              <p class="eyebrow">Browser game · 2026</p>
+              <h3>Sundrift</h3>
+              <p>Drift through a mountain pass and neon city in a browser-based driving game with procedurally generated roads and terrain. Each drift brings the sunrise a little closer.</p>
+            </div>
+            <div class="game-details">
+              <ul class="project-details">
+                <li>Three.js rendering and procedural terrain</li>
+                <li>Keyboard and touch input</li>
+                <li>Synthesized audio</li>
+              </ul>
+              <div class="actions">
+                <button type="button" class="button primary" data-play="sundrift">Play Sundrift</button>
+                <a class="button secondary" href="assets/work/sundrift-source.zip" download>Download source</a>
+              </div>
+              <p class="meta">Built for the 404 Game Jam with AI-assisted tools.</p>
+            </div>
           </div>
-          <p class="meta">Built for the 404 Game Jam with AI-assisted tools.</p>
-        </div>
-      </article>
-      <div id="game-list" class="game-list" aria-label="More projects" hidden></div>
+        </article>
+        <div id="game-list" class="game-list" aria-label="More projects" hidden></div>
       </div>
     </section>
 
