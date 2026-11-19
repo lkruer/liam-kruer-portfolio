@@ -61,6 +61,18 @@ document.querySelectorAll('main > section h2[id]').forEach(heading => {
   headingObserver.observe(heading.closest('.section-heading') ?? heading);
 });
 
+if ('ResizeObserver' in window) {
+  const frameObserver = new ResizeObserver(entries => {
+    for (const { target } of entries) {
+      const feature = target.querySelector('.thread-focus').getBoundingClientRect();
+      const sectionTop = target.getBoundingClientRect().top + target.clientTop;
+      target.style.setProperty('--thread-feature-top', Math.round(feature.top - sectionTop) + 'px');
+      target.style.setProperty('--thread-feature-bottom', Math.round(feature.bottom - sectionTop) + 'px');
+    }
+  });
+  document.querySelectorAll('.thread-focus').forEach(feature => frameObserver.observe(feature.closest('.thread-section')));
+}
+
 const list = document.querySelector('#game-list');
 for (const game of games.filter(game => game.id !== 'sundrift')) {
   const button = document.createElement('button');
