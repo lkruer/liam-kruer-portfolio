@@ -1,5 +1,4 @@
 import {initMath} from './math.js?v=engineering';
-import {initSculpture} from './sculpture-webgl.js';
 import {games,articles} from './content.js';
 import {initWork} from './work.js?v=compact';
 
@@ -12,8 +11,55 @@ menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu
 document.addEventListener('pointerdown',event=>{if(toggle.getAttribute('aria-expanded')==='true'&&!document.querySelector('.site-header').contains(event.target))closeMenu();});
 matchMedia('(min-width: 801px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
-const chapterObserver=new IntersectionObserver(entries=>{const selected=entries.find(e=>e.isIntersecting);if(selected)menu.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.hash==='#'+selected.target.id));},{rootMargin:'-12% 0px -65% 0px'});
-document.querySelectorAll('main>section[id]').forEach(section=>chapterObserver.observe(section));
+const chapters = [...document.querySelectorAll('main > section[id]')];
+const navLinks = new Map([...menu.querySelectorAll('a')].map(link => [link.hash, link]));
+const header = document.querySelector('.site-header');
+let activeLink;
+let updateQueued = false;
+
+function updateSectionNav() {
+  updateQueued = false;
+  const page = document.documentElement;
+  const atBottom = scrollY > 0 && Math.ceil(scrollY + page.clientHeight) >= page.scrollHeight - 2;
+  const readingLine = header.offsetHeight + Math.min(160, page.clientHeight * .16);
+  let current = chapters[0];
+
+  if (atBottom) {
+    current = chapters.at(-1);
+  } else {
+    for (const chapter of chapters) {
+      if (chapter.getBoundingClientRect().top > readingLine) break;
+      current = chapter;
+    }
+  }
+
+  const nextLink = navLinks.get('#' + current.id);
+  if (nextLink === activeLink) return;
+  activeLink?.removeAttribute('aria-current');
+  nextLink?.setAttribute('aria-current', 'location');
+  activeLink = nextLink;
+}
+
+function queueSectionNavUpdate() {
+  if (updateQueued) return;
+  updateQueued = true;
+  requestAnimationFrame(updateSectionNav);
+}
+
+addEventListener('scroll', queueSectionNavUpdate, { passive: true });
+addEventListener('resize', queueSectionNavUpdate);
+updateSectionNav();
+
+const headingObserver = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    entry.target.classList.add('section-arrival');
+    headingObserver.unobserve(entry.target);
+  }
+}, { rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('main > section h2[id]').forEach(heading => {
+  headingObserver.observe(heading.closest('.section-heading') ?? heading);
+});
 
 const list = document.querySelector('#game-list');
 for (const game of games.filter(game => game.id !== 'sundrift')) {
