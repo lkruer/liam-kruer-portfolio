@@ -207,7 +207,11 @@ h3 { font-size: 1.3rem; }
   --thread-ink: var(--thread-color-light);
   --thread-ink-focus: var(--thread-color-rose);
 }
-#engineering { --thread-entrance-lean: clamp(14px, 2.2vw, 34px); }
+#engineering {
+  --thread-inset: -9px;
+  --thread-entrance-lean: clamp(14px, 2.2vw, 34px);
+}
+.edge-route { --thread-inset: -9px; }
 #engineering::before { --thread-entry: var(--ribbon-lead-seam); }
 #engineering::after { --thread-entry: var(--ribbon-follow-seam); }
 #video {
@@ -216,8 +220,7 @@ h3 { font-size: 1.3rem; }
   --thread-tuck-in: .92;
 }
 @media (min-width: 921px) {
-  /* The lighter ribbon comes forward beside taller panels before tucking underneath again. */
-  :is(#math, #games, #video)::after {
+  #video::after {
     --thread-pass-x: calc(var(--thread-edge) + clamp(5px, .7vw, 12px));
     --thread-pass-width: calc(var(--thread-width) * 1.2);
   }
@@ -241,6 +244,7 @@ h3 { font-size: 1.3rem; }
 .thread-section::before, .thread-section::after {
   /* Each pair thickens at the content edge, then rejoins the same positions at the next section. */
   --thread-x: calc(var(--thread-edge) + var(--thread-outset) + var(--thread-spacing));
+  transform-origin: var(--thread-x) 0;
   --thread-start-x: var(--thread-origin, var(--thread-x));
   --thread-first-handle: calc(var(--thread-start-x) - var(--thread-entrance-lean, 0px));
   --thread-frame-x: calc(var(--thread-edge) - var(--thread-inset) + var(--thread-spacing));
@@ -300,6 +304,34 @@ h3 { font-size: 1.3rem; }
         calc(var(--thread-frame-x) + var(--thread-peak-width)) var(--thread-frame-y) /
         calc(var(--thread-first-handle) + var(--thread-width)) var(--thread-approach-y),
       close);
+  }
+}
+
+@media (min-width: 921px) {
+  .edge-route[data-edge-route]::before { clip-path: var(--route-lead); }
+  .edge-route[data-edge-route]::after { clip-path: var(--route-follow); }
+}
+
+@property --route-drawn {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@keyframes trace-route {
+  from { --route-drawn: 4%; }
+  to { --route-drawn: 100%; }
+}
+@media (min-width: 921px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .edge-route { view-timeline: --edge-route block; }
+    .edge-route::before, .edge-route::after {
+      mask-image: linear-gradient(to bottom, #000 var(--route-drawn),
+          #0008 min(100%, calc(var(--route-drawn) + 3.5rem))),
+        linear-gradient(to bottom, transparent calc(100% - 2.25rem), #000);
+      animation: trace-route linear both;
+      animation-timeline: --edge-route;
+      animation-range: cover 0% cover 80%;
+    }
   }
 }
 
@@ -540,7 +572,11 @@ button.dialog-close, button.viewer-close { background: var(--band); border: 1px 
   }
   .thread-section::before { --thread-peak-width: 3.35px; }
   .thread-section::after { --thread-peak-width: 2.25px; }
-  #engineering { --thread-arrival: 4.6rem; --thread-entrance-lean: clamp(5px, 1.2vw, 13px); }
+  #engineering {
+    --thread-arrival: 4.6rem;
+    --thread-entrance-lean: clamp(5px, 1.2vw, 13px);
+    --thread-inset: -4px;
+  }
   #video { --thread-inset: -4px; }
 }
 
