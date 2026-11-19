@@ -1,17 +1,19 @@
 import {research} from './research-catalog.js';
+import {hexagonSubmissions} from './hexagon-research.js';
 import {games} from './content.js';
 import {paperNotes} from './paper-notes.js';
 
 export function initWork(){
+  const papers = [...hexagonSubmissions, ...research];
   const dialog=document.querySelector('#research-dialog'),select=document.querySelector('#paper-select'),nav=document.querySelector('#paper-nav');
   const image=document.querySelector('#paper-image'),pageInput=document.querySelector('#paper-page'),stage=document.querySelector('#paper-stage');
-  let current=research[0],page=1,textRequest=0;
+  let current=papers[0],page=1,textRequest=0;
   const textCache=new Map();
   const lock=()=>{document.body.style.overflow=document.querySelector('dialog[open]')?'hidden':'';};
   function showModal(target){document.querySelectorAll('dialog[open]').forEach(d=>d.close());target.showModal();if(target===dialog){document.querySelector('.reader-document').scrollTop=0;stage.scrollTop=0;}lock();}
   function wireDialog(target){target.querySelector('.viewer-close').addEventListener('click',()=>target.close());target.addEventListener('close',lock);target.addEventListener('click',e=>{const r=target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)target.close();});}
   wireDialog(dialog);
-  for(const paper of research){
+  for(const paper of papers){
     const option=document.createElement('option');option.value=paper.id;option.textContent=paper.problem+' — '+paper.title;select.append(option);
     const button=document.createElement('button');button.type='button';button.dataset.paperId=paper.id;
     const tag=document.createElement('span');tag.textContent=paper.problem+' / '+paper.status;
@@ -19,7 +21,7 @@ export function initWork(){
     button.append(tag,title);button.addEventListener('click',()=>choosePaper(paper.id));nav.append(button);
   }
   function download(label,href,title){const a=document.createElement('a');a.href=href;a.download='';a.textContent=label;a.title=title||label;return a;}
-  const cards=[...document.querySelectorAll('.paper-card')],filters=[...document.querySelectorAll('[data-paper-filter]')],search=document.querySelector('#paper-search');
+  const cards=[...document.querySelectorAll('#paper-grid .paper-card')],filters=[...document.querySelectorAll('[data-paper-filter]')],search=document.querySelector('#paper-search');
   let activeFilter='all';
   function filterPapers(){
     const query=search.value.trim().toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
@@ -37,13 +39,23 @@ export function initWork(){
   search.addEventListener('input',filterPapers);
   document.querySelector('#reset-papers').addEventListener('click',()=>{activeFilter='all';search.value='';filterPapers();search.focus();});
   function choosePaper(id){
-    current=research.find(r=>r.id===id)||research[0];page=1;select.value=current.id;
+    current=papers.find(paper=>paper.id===id)||papers[0];page=1;select.value=current.id;
     document.querySelector('#paper-title').textContent=current.title;
     document.querySelector('#paper-status').textContent=current.problem+' / '+current.status;
-    const note=paperNotes[current.id];
-    document.querySelector('#paper-subtitle').textContent=(note.credit||'With Jensen Kohlmeyer')+' · '+note.topic;
+    const note = current.record ? current : paperNotes[current.id];
+    document.querySelector('#paper-subtitle').textContent = (note.credit || 'With Jensen Kohlmeyer') + ' · ' + note.topic;
     const downloads=document.querySelector('#paper-downloads');downloads.replaceChildren(download('PDF',current.pdf),download('Source bundle',current.bundle));
-    current.lean.forEach((file,i)=>downloads.append(download(current.lean.length>1?'Lean '+(i+1)+'':'Lean',file,file.split('/').at(-1))));
+    const leanFiles = current.lean || [];
+    leanFiles.forEach((file, i) => {
+      const label = leanFiles.length > 1 ? 'Lean ' + (i + 1) : 'Lean';
+      downloads.append(download(label, file, file.split('/').at(-1)));
+    });
+    if (current.record) {
+      const record = document.createElement('a');
+      record.href = current.record;
+      record.textContent = 'Hexagon record';
+      downloads.append(record);
+    }
     nav.querySelectorAll('button').forEach(b=>{const selected=b.dataset.paperId===current.id;b.classList.toggle('selected',selected);b.setAttribute('aria-current',String(selected));});
     document.querySelector('#page-zoom').setAttribute('aria-pressed','false');document.querySelector('#page-zoom').textContent='Zoom in +';stage.classList.remove('zoomed');
     drawPage();

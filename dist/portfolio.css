@@ -53,7 +53,6 @@ h3 { font-size: 1.3rem; }
 
 .hero { background: var(--wash); border-bottom: 1px solid var(--line); }
 .hero-layout { display: grid; grid-template-columns: 1.22fr 1fr; align-items: end; gap: 4rem; padding-block: clamp(2.75rem, 5.5vw, 4.5rem); }
-.hero-layout > div > .eyebrow { color: var(--accent-deep); }
 .hero h1 { font-size: clamp(3.2rem, 7.6vw, 6.35rem); font-weight: 700; letter-spacing: -.075em; margin: .35rem 0 1rem; }
 .hero-description { max-width: 31rem; font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--muted); }
 .hero-index { border-top: 2px solid var(--accent); border-bottom: 1px solid var(--line); padding-top: .9rem; }
@@ -140,6 +139,34 @@ input, select { min-height: 44px; padding: .45rem .65rem; background: var(--whit
 .archive-colophon { margin-top: 1rem; color: var(--muted); font-size: .9rem; }
 .archive-empty { padding: 1rem 0; }
 .archive-empty button { margin-top: .5rem; }
+
+.hexagon-section { border-block: 1px solid var(--line); padding-block: 1.6rem; margin-bottom: 2.4rem; }
+.hexagon-section .section-heading { margin-bottom: .9rem; }
+.hexagon-section .section-heading p { max-width: 50rem; }
+.hexagon-links { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; margin-bottom: 1.2rem; font-size: .92rem; }
+.hexagon-grid .paper-card { display: grid; grid-template-columns: minmax(8rem, .85fr) minmax(0, 1.15fr); }
+.hexagon-grid .paper-cover { grid-row: span 2; border-right: 1px solid var(--line); border-bottom: 0; }
+.hexagon-grid .paper-sheet { height: auto; width: 100%; max-width: 15rem; }
+.hexagon-grid .paper-sheet img { width: 100%; height: auto; }
+.hexagon-paper-title { margin: 0; font-size: 1.17rem; line-height: 1.25; letter-spacing: -.025em; }
+.hexagon-grid .paper-card-actions { align-content: start; }
+.hexagon-contributions { border-block: 1px solid var(--line); margin-top: 1.25rem; }
+.hexagon-contributions summary { font-weight: 650; padding: .75rem 0; color: var(--accent-deep); }
+.contribution-list { list-style: none; padding: 0; margin: 0; }
+.contribution-list li { display: flex; align-items: start; justify-content: space-between; gap: .35rem 1.1rem; padding: .7rem 0; border-top: 1px solid var(--line); }
+.contribution-list li > div { min-width: 0; }
+.contribution-list h4 { font-size: 1rem; font-weight: 600; margin: 0; }
+.contribution-list p { margin-top: .15rem; }
+.contribution-list a { flex: none; }
+@media (max-width: 960px) {
+  .hexagon-grid .paper-card { display: flex; }
+  .hexagon-grid .paper-cover { border-right: 0; border-bottom: 1px solid var(--line); }
+  .hexagon-grid .paper-sheet { height: clamp(13.5rem, 40vw, 19rem); width: auto; max-width: 100%; }
+  .hexagon-grid .paper-sheet img { width: 100%; height: 100%; }
+}
+@media (max-width: 480px) {
+  .contribution-list li { flex-direction: column; }
+}
 
 .math-lab { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 2rem; background: var(--band); border: 1px solid var(--line); padding: clamp(1.1rem, 4vw, 2.25rem); margin-top: 2.2rem; }
 .lab-copy h3 { font-size: 1.6rem; }
