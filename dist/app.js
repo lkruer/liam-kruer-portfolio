@@ -1,7 +1,7 @@
 import {initMath} from './math.js?v=engineering';
 import {initSculpture} from './sculpture-webgl.js';
 import {games,articles} from './content.js';
-import {initWork} from './work.js?v=hexagon';
+import {initWork} from './work.js?v=compact';
 
 initMath();
 

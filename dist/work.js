@@ -3,6 +3,64 @@ import {hexagonSubmissions} from './hexagon-research.js';
 import {games} from './content.js';
 import {paperNotes} from './paper-notes.js';
 
+function initPaperSearch() {
+  const search = document.querySelector('#paper-search');
+  const status = document.querySelector('#archive-results');
+  const empty = document.querySelector('#archive-empty');
+  const normalize = text => text.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
+  const groups = [...document.querySelectorAll('.research-group')].map(group => ({
+    group,
+    count: group.querySelector('[data-group-count]'),
+    rows: [...group.querySelectorAll('.paper-row')].map(row => ({
+      row,
+      text: normalize(row.querySelector('h3').textContent + ' ' + row.dataset.paperSearch),
+    })),
+  }));
+  const total = groups.reduce((sum, { rows }) => sum + rows.length, 0);
+  let openedBeforeSearch;
+
+  function filterPapers() {
+    const words = normalize(search.value).trim().split(/\s+/).filter(Boolean);
+    const searching = words.length > 0;
+    if (searching && !openedBeforeSearch) {
+      openedBeforeSearch = groups.map(({ group }) => group.open);
+    }
+
+    let matches = 0;
+    groups.forEach(({ group, count, rows }, index) => {
+      let groupMatches = 0;
+      rows.forEach(({ row, text }) => {
+        row.hidden = !words.every(word => text.includes(word));
+        if (!row.hidden) groupMatches += 1;
+      });
+      group.hidden = searching && groupMatches === 0;
+      if (searching) group.open = groupMatches > 0;
+      else if (openedBeforeSearch) group.open = openedBeforeSearch[index];
+      count.textContent = groupMatches + (groupMatches === 1 ? ' paper' : ' papers');
+      matches += groupMatches;
+    });
+
+    if (!searching) openedBeforeSearch = undefined;
+    status.textContent = searching ? matches + ' of ' + total + ' papers' : total + ' papers';
+    empty.hidden = matches > 0;
+  }
+
+  function openLinkedGroup() {
+    const entry = groups.find(({ group }) => location.hash === '#' + group.id);
+    if (entry && !entry.group.hidden) entry.group.open = true;
+  }
+
+  search.addEventListener('input', filterPapers);
+  document.querySelector('#reset-papers').addEventListener('click', () => {
+    search.value = '';
+    filterPapers();
+    search.focus();
+  });
+  filterPapers();
+  openLinkedGroup();
+  window.addEventListener('hashchange', openLinkedGroup);
+}
+
 export function initWork(){
   const papers = [...hexagonSubmissions, ...research];
   const dialog=document.querySelector('#research-dialog'),select=document.querySelector('#paper-select'),nav=document.querySelector('#paper-nav');
@@ -21,29 +79,14 @@ export function initWork(){
     button.append(tag,title);button.addEventListener('click',()=>choosePaper(paper.id));nav.append(button);
   }
   function download(label,href,title){const a=document.createElement('a');a.href=href;a.download='';a.textContent=label;a.title=title||label;return a;}
-  const cards=[...document.querySelectorAll('#paper-grid .paper-card')],filters=[...document.querySelectorAll('[data-paper-filter]')],search=document.querySelector('#paper-search');
-  let activeFilter='all';
-  function filterPapers(){
-    const query=search.value.trim().toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-    let visible=0;
-    for(const card of cards){
-      const text=card.textContent.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-      card.hidden=!(activeFilter==='all'||card.dataset.group===activeFilter)||!text.includes(query);
-      if(!card.hidden)visible++;
-    }
-    document.querySelector('#archive-results').textContent=visible===cards.length?'Showing all '+visible+' papers':'Showing '+visible+' of '+cards.length+' papers';
-    document.querySelector('#archive-empty').hidden=visible!==0;
-    filters.forEach(button=>{const selected=button.dataset.paperFilter===activeFilter;button.classList.toggle('selected',selected);button.setAttribute('aria-pressed',String(selected));});
-  }
-  filters.forEach(button=>button.addEventListener('click',()=>{activeFilter=button.dataset.paperFilter;filterPapers();}));
-  search.addEventListener('input',filterPapers);
-  document.querySelector('#reset-papers').addEventListener('click',()=>{activeFilter='all';search.value='';filterPapers();search.focus();});
+  initPaperSearch();
   function choosePaper(id){
     current=papers.find(paper=>paper.id===id)||papers[0];page=1;select.value=current.id;
     document.querySelector('#paper-title').textContent=current.title;
     document.querySelector('#paper-status').textContent=current.problem+' / '+current.status;
     const note = current.record ? current : paperNotes[current.id];
     document.querySelector('#paper-subtitle').textContent = (note.credit || 'With Jensen Kohlmeyer') + ' · ' + note.topic;
+    document.querySelector('#paper-summary').textContent = note.summary;
     const downloads=document.querySelector('#paper-downloads');downloads.replaceChildren(download('PDF',current.pdf),download('Source bundle',current.bundle));
     const leanFiles = current.lean || [];
     leanFiles.forEach((file, i) => {
@@ -77,7 +120,6 @@ export function initWork(){
   stage.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();turn(-1);}if(e.key==='ArrowRight'){e.preventDefault();turn(1);}});
   document.querySelector('#page-zoom').addEventListener('click',e=>{const zoomed=stage.classList.toggle('zoomed');e.currentTarget.setAttribute('aria-pressed',String(zoomed));e.currentTarget.textContent=zoomed?'Fit width −':'Zoom in +';});
   document.querySelectorAll('[data-research]').forEach(button=>button.addEventListener('click',()=>{choosePaper(button.dataset.research);showModal(dialog);}));
-  document.querySelector('#paper-count').textContent=research.length+' manuscripts · '+research.reduce((n,p)=>n+p.pageCount,0)+' pages';
 
   const media=document.querySelector('#media-dialog'),mediaStage=document.querySelector('#media-stage');wireDialog(media);
   function openMedia(title,kicker,url,help,kind){
@@ -87,7 +129,16 @@ export function initWork(){
     mediaStage.replaceChildren(iframe);showModal(media);
   }
   document.querySelectorAll('[data-play]').forEach(button=>button.addEventListener('click',()=>{const game=games.find(g=>g.id===button.dataset.play);if(game)openMedia(game.title,'Browser game',game.playUrl,'WASD or arrow keys to drive · Space to drift · Use the game’s pause menu, or the × above to close.','game');}));
-  document.querySelectorAll('[data-video]').forEach(button=>button.addEventListener('click',()=>openMedia(button.dataset.title,'Video','https://www.youtube-nocookie.com/embed/'+encodeURIComponent(button.dataset.video)+'?rel=0','Video playback is provided by YouTube.','video')));
+  document.querySelectorAll('[data-video]').forEach(button => button.addEventListener('click', () => {
+    const videoId = encodeURIComponent(button.dataset.video);
+    openMedia(button.dataset.title, 'Video', 'https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0', '', 'video');
+    const link = document.createElement('a');
+    link.href = 'https://www.youtube.com/watch?v=' + videoId;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Watch on YouTube';
+    document.querySelector('#media-help').append(link);
+  }));
   media.addEventListener('close',()=>mediaStage.replaceChildren());
   document.querySelector('#media-fullscreen').addEventListener('click',async()=>{try{await mediaStage.requestFullscreen();}catch{document.querySelector('#media-help').textContent='Full screen is unavailable in this browser. The player still works here.';}});
 }
