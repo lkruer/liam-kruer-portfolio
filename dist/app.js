@@ -1,7 +1,7 @@
 import { initSectionRails } from './edge-route.js?v=drafting-lines';
 import {initMath} from './math.js?v=engineering';
 import {games,articles} from './content.js';
-import {initWork} from './work.js?v=merged-hexagon';
+import {initWork} from './work.js?v=field-study';
 
 initMath();
 
@@ -11,7 +11,12 @@ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expand
 menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
 document.addEventListener('pointerdown',event=>{if(toggle.getAttribute('aria-expanded')==='true'&&!document.querySelector('.site-header').contains(event.target))closeMenu();});
 matchMedia('(min-width: 801px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
-document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+    closeMenu();
+    toggle.focus();
+  }
+});
 const chapters = [...document.querySelectorAll('main > section[id]')];
 const navLinks = new Map([...menu.querySelectorAll('a')].map(link => [link.hash, link]));
 const header = document.querySelector('.site-header');
@@ -64,6 +69,27 @@ document.querySelectorAll('main > section h2[id]').forEach(heading => {
 
 initSectionRails();
 
+const drawing = document.querySelector('#pass-drawing');
+const views = {
+  plan: { src: drawing.getAttribute('src'), alt: drawing.alt },
+  profile: {
+    src: 'assets/sundrift-road-profile.webp',
+    alt: 'Elevation over the same two kilometers. The road climbs, dips twice, then ends 47 meters above its starting point.',
+  },
+};
+const drawingSwitch = document.querySelector('.study-switch');
+drawingSwitch.hidden = false;
+drawingSwitch.addEventListener('click', event => {
+  const button = event.target.closest('[data-drawing]');
+  if (!button) return;
+  const view = views[button.dataset.drawing];
+  drawing.src = view.src;
+  drawing.alt = view.alt;
+  for (const option of drawingSwitch.querySelectorAll('button')) {
+    option.setAttribute('aria-pressed', String(option === button));
+  }
+});
+
 const list = document.querySelector('#game-list');
 for (const game of games.filter(game => game.id !== 'sundrift')) {
   const button = document.createElement('button');
@@ -78,8 +104,8 @@ initWork();
 
 const articleDialog=document.querySelector('#article-dialog'),articleContent=document.querySelector('#article-content');
 document.querySelectorAll('[data-article]').forEach(button=>button.addEventListener('click',()=>{const article=articles[button.dataset.article];articleContent.replaceChildren();
-  const kicker=document.createElement('p');kicker.className='dialog-kicker';kicker.textContent=article.category;articleContent.append(kicker);
-  const title=document.createElement('h2');title.id='article-title';title.textContent=article.title;articleContent.append(title);
+  articleDialog.querySelector('.dialog-kicker').textContent=article.category;
+  document.querySelector('#article-title').textContent=article.title;
   article.body.forEach(([tag,text])=>{const p=document.createElement(tag);p.textContent=text;articleContent.append(p);});
   const downloads=document.createElement('div');downloads.className='note-downloads';
   const source=document.createElement('a');source.className='text-link';source.href='assets/work/notes/'+button.dataset.article+'.md';source.download='';source.textContent='Download this note';downloads.append(source);

@@ -89,6 +89,7 @@ export function initWork(){
   initPaperSearch();
   function choosePaper(id){
     current=papers.find(paper=>paper.id===id)||papers[0];page=1;select.value=current.id;
+    document.querySelector('.reader-document').scrollTop=0;
     document.querySelector('#paper-title').textContent=current.title;
     document.querySelector('#paper-status').textContent=current.problem+' / '+current.status;
     const note = current.record ? current : paperNotes[current.id];
@@ -115,7 +116,6 @@ export function initWork(){
     image.src=paper.pages[targetPage-1];image.alt=`${paper.title}, page ${targetPage} of ${paper.pageCount}`;
     pageInput.max=String(paper.pageCount);pageInput.value=String(targetPage);document.querySelector('#paper-page-total').textContent='/ '+paper.pageCount;
     document.querySelector('#page-prev').disabled=targetPage===1;document.querySelector('#page-next').disabled=targetPage===paper.pageCount;stage.scrollTop=0;stage.scrollLeft=0;
-    document.querySelector('.reader-document').scrollTop=0;
     const pre=document.querySelector('#paper-text');pre.textContent='Loading page text…';
     try{if(!textCache.has(paper.id)){const r=await fetch(paper.text);if(!r.ok)throw new Error('Text unavailable');textCache.set(paper.id,await r.json());}if(request===textRequest)pre.textContent=textCache.get(paper.id)[targetPage-1]||'This page is best viewed in the original PDF.';}
     catch{if(request===textRequest)pre.textContent='The original page is shown above. The PDF download also preserves the text and mathematical notation.';}
@@ -125,7 +125,7 @@ export function initWork(){
   document.querySelector('#page-prev').addEventListener('click',()=>turn(-1));document.querySelector('#page-next').addEventListener('click',()=>turn(1));
   pageInput.addEventListener('change',()=>{const n=Number(pageInput.value);page=Number.isInteger(n)?Math.max(1,Math.min(current.pageCount,n)):page;drawPage();});
   stage.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();turn(-1);}if(e.key==='ArrowRight'){e.preventDefault();turn(1);}});
-  document.querySelector('#page-zoom').addEventListener('click',e=>{const zoomed=stage.classList.toggle('zoomed');e.currentTarget.setAttribute('aria-pressed',String(zoomed));e.currentTarget.textContent=zoomed?'Fit width −':'Zoom in +';});
+  document.querySelector('#page-zoom').addEventListener('click',e=>{const zoomed=stage.classList.toggle('zoomed');e.currentTarget.setAttribute('aria-pressed',String(zoomed));e.currentTarget.textContent=zoomed?'Fit page':'Zoom in +';});
   document.querySelectorAll('[data-research]').forEach(button=>button.addEventListener('click',()=>{choosePaper(button.dataset.research);showModal(dialog);}));
 
   const media=document.querySelector('#media-dialog'),mediaStage=document.querySelector('#media-stage');wireDialog(media);

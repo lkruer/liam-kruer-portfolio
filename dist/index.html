@@ -18,9 +18,9 @@
   <link rel="icon" href="assets/brand/lk-racing-red.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/brand/lk-racing-red-180.png" sizes="180x180">
   <link rel="stylesheet" href="assets/reading-fonts.css">
-  <link rel="stylesheet" href="portfolio.css?v=drafting-lines">
-  <title>Liam Kruer</title>
-  <script type="module" src="app.js?v=drafting-lines"></script>
+  <link rel="stylesheet" href="portfolio.css?v=field-study">
+  <title>Liam Kruer | Engineering &amp; Mathematics</title>
+  <script type="module" src="app.js?v=field-study"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -48,8 +48,8 @@
           <h1 id="hero-title">Liam <span>Kruer</span></h1>
           <p class="hero-description">I model how cars move, build procedural worlds, and explore mathematics through code and proof.</p>
           <div class="actions">
-            <a class="button primary" href="#engineering">Explore engineering</a>
-            <a class="hero-research-link" href="#math">Browse research</a>
+            <a class="button primary" href="#engineering">Explore build notes</a>
+            <a class="hero-research-link" href="#math">Browse papers</a>
           </div>
         </div>
       </div>
@@ -63,25 +63,29 @@
       <div class="wrap section">
         <div class="section-heading">
           <h2 id="engineering-title">Engineering</h2>
-          <p>How Sundrift generates a mountain road, models tire grip, and responds to keyboard and touch input.</p>
+          <p>A look inside Sundrift’s road generator, drift physics, and input testing.</p>
         </div>
         <div class="engineering-layout">
+          <figure class="pass-study">
+            <div class="study-header">
+              <h3>Mountain pass</h3>
+              <div class="study-switch" role="group" aria-label="Road drawing view" hidden>
+                <button type="button" aria-pressed="true" data-drawing="plan">Plan</button>
+                <button type="button" aria-pressed="false" data-drawing="profile">Elevation</button>
+              </div>
+            </div>
+            <img id="pass-drawing" src="assets/sundrift-road-plan.webp" width="1444" height="712" loading="lazy" alt="The first two kilometers of a generated Sundrift road, with switchbacks climbing across two-meter terrain contours.">
+            <figcaption><span>Sundrift road generator</span><span>2.0 km <span aria-hidden="true">/</span> +47 m net rise</span></figcaption>
+          </figure>
           <div>
             <h3 class="build-notes-heading">Sundrift build notes</h3>
             <ul class="build-log">
-              <li><button type="button" class="build-entry" data-article="world"><span><strong>Procedural environments</strong><span>How roads, terrain, and scenery share the same model.</span></span><span class="build-entry-action">Read note</span></button></li>
-              <li><button type="button" class="build-entry" data-article="handling"><span><strong>Vehicle handling</strong><span>How steering, grip, and player input shape the drift model.</span></span><span class="build-entry-action">Read note</span></button></li>
-              <li><button type="button" class="build-entry" data-article="iteration"><span><strong>Testing and iteration</strong><span>What playtests, measurements, and rejected designs revealed.</span></span><span class="build-entry-action">Read note</span></button></li>
+              <li><button type="button" class="build-entry" data-article="world"><span><strong>Procedural environments</strong><span>Growing switchbacks along the contours of a shared height field.</span></span><span class="note-icon" aria-hidden="true"></span></button></li>
+              <li><button type="button" class="build-entry" data-article="handling"><span><strong>Vehicle handling</strong><span>Tuning steering and traction so a slide responds to the driver.</span></span><span class="note-icon" aria-hidden="true"></span></button></li>
+              <li><button type="button" class="build-entry" data-article="iteration"><span><strong>Testing and iteration</strong><span>Testing the same handling model with a keyboard and a touchscreen.</span></span><span class="note-icon" aria-hidden="true"></span></button></li>
             </ul>
           </div>
-          <div class="credentials" id="certifications">
-            <h3>SOLIDWORKS certifications</h3>
-            <ul>
-              <li><strong>CSWA</strong><span>Certified SOLIDWORKS Associate</span></li>
-              <li><strong>CSWP</strong><span>Certified SOLIDWORKS Professional</span></li>
-            </ul>
-            <p class="meta">Dassault Systèmes · May 2026</p>
-          </div>
+
         </div>
       </div>
     </section>
@@ -101,7 +105,17 @@
           <p class="archive-status" id="archive-results" role="status">36 papers</p>
         </div>
         <details class="research-group" id="hexagon">
-          <summary>Hexagon research <span class="group-count" data-group-count>24 papers</span></summary>
+          <summary><span class="collection-title">Hexagon research<small>AI-generated preprints with shared contributor credit</small></span> <span class="group-count" data-group-count>24 papers</span></summary>
+          <details class="research-provenance">
+            <summary>Credits, provenance, and licensing</summary>
+            <p>Hexagon credits Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer on all 24 works and lists them as primarily AI-generated. The six submissions declare that no part was checked and understood by a human. The original records give the provenance for each preprint.</p>
+            <p>The files are shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. See the <a href="assets/work/hexagon/LICENSES.md">attribution list</a> for every version.</p>
+            <div class="hexagon-links">
+              <a href="https://hexagonmath.org/users/user_bb599767-1abb-4b78-9baf-bc8da1bb43d3">My Hexagon submissions</a>
+              <a href="https://hexagonmath.org/search?author=Liam+Kruer">Contributor search</a>
+              <a href="https://orcid.org/0009-0005-8708-1804">ORCID</a>
+            </div>
+          </details>
           <div class="paper-section" data-paper-section>
             <h3>Submissions</h3>
             <ul class="paper-list">
@@ -185,6 +199,7 @@
                 <p class="meta">Combinatorics · Nov 16, 2026 · 12 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00319v1.pdf" target="_blank" rel="noopener" aria-label="Read The Zarankiewicz number z(13,15;3,4) PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00319v1.pdf" download aria-label="Download The Zarankiewicz number z(13,15;3,4) PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00319v1" aria-label="Hexagon record for The Zarankiewicz number z(13,15;3,4)">Hexagon record</a>
               </div>
@@ -195,6 +210,7 @@
                 <p class="meta">Number Theory · Nov 16, 2026 · 4 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00536v1.pdf" target="_blank" rel="noopener" aria-label="Read Consecutive primes at distances 123,662 and 125,318 PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00536v1.pdf" download aria-label="Download Consecutive primes at distances 123,662 and 125,318 PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00536v1" aria-label="Hexagon record for Consecutive primes at distances 123,662 and 125,318">Hexagon record</a>
               </div>
@@ -205,6 +221,7 @@
                 <p class="meta">Number Theory · Nov 16, 2026 · 3 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00514v1.pdf" target="_blank" rel="noopener" aria-label="Read Consecutive primes at distance 122,290 PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00514v1.pdf" download aria-label="Download Consecutive primes at distance 122,290 PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00514v1" aria-label="Hexagon record for Consecutive primes at distance 122,290">Hexagon record</a>
               </div>
@@ -215,6 +232,7 @@
                 <p class="meta">Number Theory · Nov 12, 2026 · 8 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00370v1.pdf" target="_blank" rel="noopener" aria-label="Read Euler&#39;s 1747 conjecture on sums of integers with restricted prime factors PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00370v1.pdf" download aria-label="Download Euler&#39;s 1747 conjecture on sums of integers with restricted prime factors PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00370v1" aria-label="Hexagon record for Euler&#39;s 1747 conjecture on sums of integers with restricted prime factors">Hexagon record</a>
               </div>
@@ -225,6 +243,7 @@
                 <p class="meta">Number Theory · Nov 12, 2026 · 6 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00361v1.pdf" target="_blank" rel="noopener" aria-label="Read A unimodular continued fraction for cubic irrationals PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00361v1.pdf" download aria-label="Download A unimodular continued fraction for cubic irrationals PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00361v1" aria-label="Hexagon record for A unimodular continued fraction for cubic irrationals">Hexagon record</a>
               </div>
@@ -235,6 +254,7 @@
                 <p class="meta">Number Theory · Nov 12, 2026 · 2 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00360v1.pdf" target="_blank" rel="noopener" aria-label="Read A congruence obstruction to Ibn al-Khawwām’s eleventh problem PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00360v1.pdf" download aria-label="Download A congruence obstruction to Ibn al-Khawwām’s eleventh problem PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00360v1" aria-label="Hexagon record for A congruence obstruction to Ibn al-Khawwām’s eleventh problem">Hexagon record</a>
               </div>
@@ -245,6 +265,7 @@
                 <p class="meta">Number Theory · Nov 12, 2026 · 9 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00315v1.pdf" target="_blank" rel="noopener" aria-label="Read A boundary limit for Suzuki&#39;s arithmetic canonical system PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00315v1.pdf" download aria-label="Download A boundary limit for Suzuki&#39;s arithmetic canonical system PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00315v1" aria-label="Hexagon record for A boundary limit for Suzuki&#39;s arithmetic canonical system">Hexagon record</a>
               </div>
@@ -255,6 +276,7 @@
                 <p class="meta">Formal Languages And Automata Theory · Nov 12, 2026 · 7 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00314v1.pdf" target="_blank" rel="noopener" aria-label="Read A superlogarithmic lower bound for deterministic word separation PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00314v1.pdf" download aria-label="Download A superlogarithmic lower bound for deterministic word separation PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00314v1" aria-label="Hexagon record for A superlogarithmic lower bound for deterministic word separation">Hexagon record</a>
               </div>
@@ -265,6 +287,7 @@
                 <p class="meta">Dynamical Systems · Nov 12, 2026 · 9 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00313v1.pdf" target="_blank" rel="noopener" aria-label="Read An ergodic classification of smooth type subshifts over odd two-letter alphabets PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00313v1.pdf" download aria-label="Download An ergodic classification of smooth type subshifts over odd two-letter alphabets PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00313v1" aria-label="Hexagon record for An ergodic classification of smooth type subshifts over odd two-letter alphabets">Hexagon record</a>
               </div>
@@ -275,6 +298,7 @@
                 <p class="meta">Combinatorics · Nov 12, 2026 · 5 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00312v1.pdf" target="_blank" rel="noopener" aria-label="Read Periodic counterexamples to three conjectures on Kolakoski transforms PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00312v1.pdf" download aria-label="Download Periodic counterexamples to three conjectures on Kolakoski transforms PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00312v1" aria-label="Hexagon record for Periodic counterexamples to three conjectures on Kolakoski transforms">Hexagon record</a>
               </div>
@@ -285,6 +309,7 @@
                 <p class="meta">Formal Languages And Automata Theory · Nov 12, 2026 · 14 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00311v1.pdf" target="_blank" rel="noopener" aria-label="Read Nonstabilization of the Predictive Boolean Lookahead Hierarchy PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00311v1.pdf" download aria-label="Download Nonstabilization of the Predictive Boolean Lookahead Hierarchy PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00311v1" aria-label="Hexagon record for Nonstabilization of the Predictive Boolean Lookahead Hierarchy">Hexagon record</a>
               </div>
@@ -295,6 +320,7 @@
                 <p class="meta">Number Theory · Nov 12, 2026 · 7 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00310v1.pdf" target="_blank" rel="noopener" aria-label="Read Joint distribution of factorial units and valuations in translated intervals PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00310v1.pdf" download aria-label="Download Joint distribution of factorial units and valuations in translated intervals PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00310v1" aria-label="Hexagon record for Joint distribution of factorial units and valuations in translated intervals">Hexagon record</a>
               </div>
@@ -305,6 +331,7 @@
                 <p class="meta">Probability · Nov 11, 2026 · 13 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00270v1.pdf" target="_blank" rel="noopener" aria-label="Read Quartic exponential matching in the unit square PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00270v1.pdf" download aria-label="Download Quartic exponential matching in the unit square PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00270v1" aria-label="Hexagon record for Quartic exponential matching in the unit square">Hexagon record</a>
               </div>
@@ -315,6 +342,7 @@
                 <p class="meta">Formal Languages And Automata Theory · Nov 11, 2026 · 6 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00269v1.pdf" target="_blank" rel="noopener" aria-label="Read Sublinear-space recognition for Boolean grammars PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00269v1.pdf" download aria-label="Download Sublinear-space recognition for Boolean grammars PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00269v1" aria-label="Hexagon record for Sublinear-space recognition for Boolean grammars">Hexagon record</a>
               </div>
@@ -325,6 +353,7 @@
                 <p class="meta">Dynamical Systems · Nov 11, 2026 · 5 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00268v1.pdf" target="_blank" rel="noopener" aria-label="Read Palindromic sections in two Kolakoski phase actions PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00268v1.pdf" download aria-label="Download Palindromic sections in two Kolakoski phase actions PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00268v1" aria-label="Hexagon record for Palindromic sections in two Kolakoski phase actions">Hexagon record</a>
               </div>
@@ -335,6 +364,7 @@
                 <p class="meta">Dynamical Systems · Nov 11, 2026 · 6 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00267v1.pdf" target="_blank" rel="noopener" aria-label="Read Two exact frequency extrema for smooth sequences over {1,3} PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00267v1.pdf" download aria-label="Download Two exact frequency extrema for smooth sequences over {1,3} PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00267v1" aria-label="Hexagon record for Two exact frequency extrema for smooth sequences over {1,3}">Hexagon record</a>
               </div>
@@ -345,6 +375,7 @@
                 <p class="meta">Number Theory · Nov 10, 2026 · 9 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00257v1.pdf" target="_blank" rel="noopener" aria-label="Read Spectral synthesis for the Báez–Duarte step space PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00257v1.pdf" download aria-label="Download Spectral synthesis for the Báez–Duarte step space PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00257v1" aria-label="Hexagon record for Spectral synthesis for the Báez–Duarte step space">Hexagon record</a>
               </div>
@@ -355,6 +386,7 @@
                 <p class="meta">Formal Languages And Automata Theory · Nov 10, 2026 · 7 pages</p>
               </div>
               <div class="paper-row-actions">
+                <a href="assets/work/hexagon/2611.00235v1.pdf" target="_blank" rel="noopener" aria-label="Read Decomposable disjoint-union circuits for primitive words PDF in a new tab">Read PDF</a>
                 <a href="assets/work/hexagon/2611.00235v1.pdf" download aria-label="Download Decomposable disjoint-union circuits for primitive words PDF">Download PDF</a>
                 <a href="https://hexagonmath.org/2611.00235v1" aria-label="Hexagon record for Decomposable disjoint-union circuits for primitive words">Hexagon record</a>
               </div>
@@ -362,19 +394,9 @@
             <!-- HEXAGON CONTRIBUTIONS END -->
             </ul>
           </div>
-          <div class="research-provenance">
-            <h3>Credits, provenance, and licensing</h3>
-            <p>Hexagon credits Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer on all 24 works and lists them as primarily AI-generated. The six submissions declare that no part was checked and understood by a human. The original records give the provenance for each preprint.</p>
-            <p>The files are shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. See the <a href="assets/work/hexagon/LICENSES.md">attribution list</a> for every version.</p>
-            <div class="hexagon-links">
-              <a href="https://hexagonmath.org/users/user_bb599767-1abb-4b78-9baf-bc8da1bb43d3">My Hexagon submissions</a>
-              <a href="https://hexagonmath.org/search?author=Liam+Kruer">Contributor search</a>
-              <a href="https://orcid.org/0009-0005-8708-1804">ORCID</a>
-            </div>
-          </div>
         </details>
         <details class="research-group" id="working-manuscripts">
-          <summary>Working manuscripts and formalizations <span class="group-count" data-group-count>12 papers</span></summary>
+          <summary><span class="collection-title">Working manuscripts and formalizations<small>Draft proofs, source files, and Lean 4 formalizations</small></span> <span class="group-count" data-group-count>12 papers</span></summary>
           <ul class="paper-list">
             <!-- WORKING MANUSCRIPTS START -->
             <li class="paper-row" data-paper-search="Erdős 96 &amp; 97 Discrete geometry Manuscript 7 pages How many equal-length connections can a convex polygon contain? A collaborative manuscript studies constructions for Erdős problems 96 and 97, with a companion Lean 4 formalization. With Jensen Kohlmeyer &amp; Liam Price Erdős 96 &amp; 97 unit-distances">
@@ -560,48 +582,60 @@
           <div><h2 id="video-title">Videos</h2><p>Mathematics, automotive design, and vehicle physics.</p></div>
           <a class="button secondary" href="https://www.youtube.com/@liamkruer/videos" target="_blank" rel="noopener noreferrer">YouTube channel</a>
         </div>
-        <button type="button" class="video-card featured-video" id="circle-packing-video" data-video="fnPPJNX6iOE" data-title="Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive" aria-label="Watch Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive">
-          <div class="video-image">
-            <img src="assets/video-circle-packing.jpg" alt="" width="720" height="404" loading="lazy">
-            <span class="video-length">13:19</span>
+        <div class="video-program">
+          <button type="button" class="video-card featured-video" id="circle-packing-video" data-video="fnPPJNX6iOE" data-title="Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive" aria-label="Watch Why Can’t These Circles Fit Any Tighter? - A Frontier AI Mathematic Deepdive">
+            <div class="video-image">
+              <img src="assets/video-circle-packing.jpg" alt="" width="720" height="404" loading="lazy">
+              <span class="video-length">13:19</span>
+            </div>
+            <div class="featured-video-copy">
+              <p class="eyebrow">Featured video · Mathematics</p>
+              <h3>Why Can’t These Circles Fit Any Tighter?</h3>
+              <p>A look at circle packing and how frontier AI approaches the problem.</p>
+              <span class="featured-video-action">Watch video</span>
+            </div>
+          </button>
+          <div class="video-grid">
+            <button type="button" class="video-card" data-video="7eLlpAYYnl4" data-title="The ACTUAL Cost of a Fast and Furious Car" aria-label="Watch The ACTUAL Cost of a Fast and Furious Car">
+              <div class="video-image">
+                <img src="assets/video-fast-furious.jpg" alt="" width="720" height="404" loading="lazy">
+                <span class="video-length">3:54</span>
+              </div>
+              <p class="micro">Cars &amp; culture</p><h3>The ACTUAL Cost of a Fast and Furious Car</h3>
+            </button>
+            <button type="button" class="video-card" data-video="g-8AXtrqyxU" data-title="The Toyota Way" aria-label="Watch The Toyota Way">
+              <div class="video-image">
+                <img src="assets/video-toyota.jpg" alt="" width="720" height="404" loading="lazy">
+                <span class="video-length">9:19</span>
+              </div>
+              <p class="micro">Design &amp; engineering</p><h3>The Toyota Way</h3>
+            </button>
+            <button type="button" class="video-card" data-video="qffg2WD3Gy8" data-title="I Ranked Cars by Physics, Not Horsepower" aria-label="Watch I Ranked Cars by Physics, Not Horsepower">
+              <div class="video-image">
+                <img src="assets/video-physics.jpg" alt="" width="720" height="404" loading="lazy">
+                <span class="video-length">3:49</span>
+              </div>
+              <p class="micro">Physics</p><h3>I Ranked Cars by Physics, Not Horsepower</h3>
+            </button>
           </div>
-          <div class="featured-video-copy">
-            <p class="eyebrow">Latest upload · Mathematics</p>
-            <h3>Why Can’t These Circles Fit Any Tighter?</h3>
-            <p>A look at circle packing and how frontier AI approaches the problem.</p>
-            <span class="featured-video-action">Watch video</span>
-          </div>
-        </button>
-        <div class="video-grid">
-          <button type="button" class="video-card" data-video="7eLlpAYYnl4" data-title="The ACTUAL Cost of a Fast and Furious Car" aria-label="Watch The ACTUAL Cost of a Fast and Furious Car">
-            <div class="video-image">
-              <img src="assets/video-fast-furious.jpg" alt="" width="720" height="404" loading="lazy">
-              <span class="video-length">3:54</span>
-            </div>
-            <p class="micro">Cars &amp; culture</p><h3>The ACTUAL Cost of a Fast and Furious Car</h3>
-          </button>
-          <button type="button" class="video-card" data-video="g-8AXtrqyxU" data-title="The Toyota Way" aria-label="Watch The Toyota Way">
-            <div class="video-image">
-              <img src="assets/video-toyota.jpg" alt="" width="720" height="404" loading="lazy">
-              <span class="video-length">9:19</span>
-            </div>
-            <p class="micro">Design &amp; engineering</p><h3>The Toyota Way</h3>
-          </button>
-          <button type="button" class="video-card" data-video="qffg2WD3Gy8" data-title="I Ranked Cars by Physics, Not Horsepower" aria-label="Watch I Ranked Cars by Physics, Not Horsepower">
-            <div class="video-image">
-              <img src="assets/video-physics.jpg" alt="" width="720" height="404" loading="lazy">
-              <span class="video-length">3:49</span>
-            </div>
-            <p class="micro">Physics</p><h3>I Ranked Cars by Physics, Not Horsepower</h3>
-          </button>
         </div>
       </div>
     </section>
 
     <section class="about-section thread-section" id="about" aria-labelledby="about-title">
       <div class="wrap section">
-        <h2 id="about-title">About me</h2>
-        <p>I study engineering at Purdue University. Outside class, I work on mathematical writing, browser-based simulation, and creative software. I’m interested in how a model translates into something people can test, play, or use.</p>
+        <div class="about-copy">
+          <h2 id="about-title">About me</h2>
+          <p>I study engineering at Purdue University. Outside class, I work on mathematical writing, browser-based simulation, and creative software. I’m interested in how a model translates into something people can test, play, or use.</p>
+        </div>
+        <div class="credentials" id="certifications">
+          <h3>SOLIDWORKS certifications</h3>
+          <ul>
+            <li><strong>CSWA</strong><span>Certified SOLIDWORKS Associate</span></li>
+            <li><strong>CSWP</strong><span>Certified SOLIDWORKS Professional</span></li>
+          </ul>
+          <p class="meta">Dassault Systèmes · May 2026</p>
+        </div>
       </div>
     </section>
 
@@ -621,7 +655,10 @@
     <a href="#home">Back to top</a>
   </footer>
   <dialog id="article-dialog" aria-labelledby="article-title">
-    <button type="button" class="dialog-close" aria-label="Close build note">×</button>
+    <header class="viewer-header">
+      <div><p class="dialog-kicker">Sundrift build notes</p><h2 id="article-title">Build note</h2></div>
+      <button type="button" class="dialog-close" aria-label="Close build note">×</button>
+    </header>
     <div id="article-content"></div>
   </dialog>
   <dialog id="research-dialog" class="research-dialog" aria-labelledby="research-dialog-title">
